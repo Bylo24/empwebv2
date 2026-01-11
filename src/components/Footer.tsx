@@ -37,16 +37,7 @@ const Footer = () => {
               className="flex items-center gap-2 hover:text-foreground transition-colors"
             >
               <Linkedin className="w-4 h-4" />
-              Emporom LinkedIn
-            </a>
-            <a
-              href="https://nz.linkedin.com/in/samuel-howell-b666b1314"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
-            >
-              <Linkedin className="w-4 h-4" />
-              Sam Howell
+              LinkedIn
             </a>
             <a
               href="https://www.instagram.com/emporom.media/"

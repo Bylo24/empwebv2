@@ -17,7 +17,7 @@ const team = [
     lastName: "Howell",
     role: "Co-founder",
     image: samImg,
-    linkedin: "https://linkedin.com/",
+    linkedin: "https://nz.linkedin.com/in/samuel-howell-b666b1314",
   },
 ];
 
