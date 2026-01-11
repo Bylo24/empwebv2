@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 const Hero = () => {
-  return <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16">
+  return <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 py-[10px] my-0 mx-0">
       <div className="max-w-5xl mx-auto">
         {/* Main Headline */}
         <motion.h1 initial={{
@@ -48,22 +48,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Reviews */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5,
-        delay: 0.3
-      }} className="flex items-center gap-2">
-          <div className="flex">
-            {[1, 2, 3, 4].map(i => <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
-            <Star className="w-4 h-4 fill-amber-400/50 text-amber-400" />
-          </div>
-          <span className="text-sm text-muted-foreground">Over 200+ Five Star Reviews</span>
-        </motion.div>
+        
       </div>
 
       {/* Value Proposition */}
