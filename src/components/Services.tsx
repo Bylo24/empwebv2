@@ -1,127 +1,131 @@
-import { motion } from "framer-motion";
-import { Megaphone, Globe, Cog } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Megaphone, Globe, Palette } from "lucide-react";
 
 const services = [
   {
+    id: "digital-marketing",
     icon: Megaphone,
-    category: "Traffic",
-    title: "Ad Creative & Campaigns",
+    title: "Digital Marketing",
+    headline: "Digital Marketing",
     description:
-      "Strategic offer framing, scroll-stopping creative, and campaign structures that drive qualified demand—not wasted clicks.",
+      "Let's face it, the internet is a noisy place. But with our Digital Marketing services, you won't just stand out—you'll shine. We'll help you show up where your customers are hanging out, whether that's Google, Instagram, or somewhere in between.",
     features: [
-      "Meta & Google Ads",
-      "Creative testing frameworks",
-      "Performance tracking",
-      "Audience segmentation",
+      "SEO (Search Engine Optimization)",
+      "PPC Advertising",
+      "Social Media Marketing",
+      "Email Marketing",
+      "Content Marketing",
     ],
   },
   {
+    id: "web-design",
     icon: Globe,
-    category: "Conversion",
-    title: "Websites, Funnels & Assets",
+    title: "Web Design and Development",
+    headline: "Web Design and Development",
     description:
-      "High-converting pages and funnels built for brands that sell products or book calls. Clear, fast, and engineered to convert.",
+      "Your website is like your digital handshake—it's the first thing people notice about you online. Our Web Design & Development services are all about making that handshake firm, friendly, and unforgettable.",
     features: [
-      "Landing pages & websites",
-      "Sales funnels",
-      "Mobile-first optimization",
-      "Lead qualification forms",
+      "UI UX Design",
+      "Custom Website Design",
+      "E-Commerce Development",
+      "Content Management Systems (CMS)",
+      "Website Maintenance and Support",
     ],
   },
   {
-    icon: Cog,
-    category: "Systems",
-    title: "Automation & Infrastructure",
+    id: "branding",
+    icon: Palette,
+    title: "Branding & Creative Services",
+    headline: "Branding & Creative Services",
     description:
-      "Intelligent qualification, routing, and follow-up systems that keep leads moving forward without manual bottlenecks.",
+      "Your brand is so much more than a logo—it's your story, your personality, and your promise to customers. Our Branding & Creative Services bring your identity to life in a way that's bold, beautiful, and 100% you.",
     features: [
-      "Lead qualification logic",
-      "Automated booking flows",
-      "CRM integration",
-      "Email & SMS sequences",
+      "Logo Design",
+      "Brand Strategy & Positioning",
+      "Visual Identity Design",
+      "Brand Guidelines",
+      "Social media graphics",
     ],
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
 const Services = () => {
+  const [activeService, setActiveService] = useState(services[0].id);
+  const currentService = services.find((s) => s.id === activeService)!;
+
   return (
-    <section id="services" className="py-24 px-6 relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="section-badge mb-4">The Growth Engine</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">
-            Three levers, one system
+          <span className="section-badge mb-4">✦ Our services</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6">
+            Services designed to help your brand shine brighter.
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            These levers work together. Remove one, and scale breaks. We build the complete system so your growth compounds.
-          </p>
         </motion.div>
 
-        {/* Service cards */}
+        {/* Service tabs */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {services.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={cardVariants}
-              className="glass-card-hover rounded-3xl p-8 flex flex-col"
+            <button
+              key={service.id}
+              onClick={() => setActiveService(service.id)}
+              className={`service-tab ${activeService === service.id ? "service-tab-active" : ""}`}
             >
-              {/* Category badge */}
-              <div className="inline-flex items-center gap-2 text-sm font-medium text-primary mb-4">
-                <service.icon className="w-4 h-4" />
-                {service.category}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-
-              {/* Description */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
-
-              {/* Features */}
-              <ul className="mt-auto space-y-3">
-                {service.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-center gap-3 text-sm text-foreground/80"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              {service.title}
+            </button>
           ))}
         </motion.div>
+
+        {/* Service content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeService}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="bg-secondary/30 rounded-3xl p-8 md:p-12"
+          >
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
+                  {currentService.headline}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  {currentService.description}
+                </p>
+                <button className="text-sm font-semibold underline underline-offset-4 hover:text-accent transition-colors">
+                  View Details
+                </button>
+              </div>
+              <div className="space-y-3">
+                {currentService.features.map((feature) => (
+                  <div
+                    key={feature}
+                    className="flex items-center gap-3 px-4 py-3 bg-background rounded-xl border border-border"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-foreground" />
+                    <span className="text-sm font-medium">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

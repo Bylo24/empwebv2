@@ -8,40 +8,40 @@ import {
 
 const faqs = [
   {
-    question: "How quickly will I see results?",
+    question: "What services do you offer?",
     answer:
-      "Most clients see initial traction within 2-4 weeks of launch. However, compounding growth typically kicks in around month 2-3 as we optimize and scale what's working. We set realistic expectations upfront—no overnight miracles, just steady, measurable progress.",
+      "We're a one-stop-shop for all things digital! From crafting stunning websites to skyrocketing your SEO rankings, managing your social media, and building unforgettable brands, we do it all.",
   },
   {
-    question: "What types of businesses do you work with?",
+    question: "Do you work with small businesses or just big brands?",
     answer:
-      "We specialize in product-led and service-driven businesses that are ready to scale. This includes SaaS companies, e-commerce brands, agencies, and professional service firms. If you have product-market fit and want to grow, we should talk.",
+      "Size doesn't matter! Whether you're a budding startup or an industry giant, we're here to make your vision a reality. Big dreams? Small budget? Let's chat!",
   },
   {
-    question: "Do you handle everything for the ads?",
+    question: "Can I customize the packages you offer?",
     answer:
-      "Yes. Strategy, creative, copywriting, campaign setup, optimization, and reporting—we handle the entire ads operation. You'll have complete visibility into performance, but we take care of the execution so you can focus on your business.",
+      "Absolutely! Think of our packages as a base pizza—you can add or swap toppings (services) to create your perfect slice of digital success.",
   },
   {
-    question: "Is this a one-time build or an ongoing partnership?",
+    question: "How do you measure the success of a marketing campaign?",
     answer:
-      "We offer both. Some clients need a complete growth infrastructure built and handed off. Others want ongoing management and optimization. We'll recommend what makes sense based on your goals and internal capacity.",
+      "Numbers don't lie, and neither do we! We track everything from website traffic to social media engagement and conversions. You'll get regular reports, so you're always in the know.",
   },
   {
-    question: "What makes you different from other agencies?",
+    question: "What if I don't like the designs or strategies?",
     answer:
-      "We're not an agency—we're growth engineers. We don't just run ads or build websites in isolation. We connect traffic, conversion, and automation into one cohesive system. No silos, no finger-pointing, just results.",
+      "Honesty hour—we want you to love what we create. If you're not thrilled, we'll go back to the drawing board and tweak until it's perfect. Your happiness is our success.",
   },
   {
-    question: "How involved do I need to be?",
+    question: "How do I get started?",
     answer:
-      "Minimal. After the initial discovery phase, we handle execution. You'll receive regular updates and have direct access to our team, but we don't need constant hand-holding. We're self-sufficient by design.",
+      "It's easy! Just click that shiny 'Contact Us' button, shoot us a message, or give us a call. We'll grab coffee (virtually or in-person) and start brainstorming magic together.",
   },
 ];
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 px-6 relative">
+    <section id="faq" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -49,14 +49,14 @@ const FAQ = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="section-badge mb-4">FAQ</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">
-            Straight answers
+          <span className="section-badge mb-4">Frequently Asked Questions</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6 mb-4">
+            Got questions? Here's everything you need to know.
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Clear expectations. Clean execution. No hidden surprises.
+          <p className="text-muted-foreground">
+            The answers you're probably looking for — all right here.
           </p>
         </motion.div>
 
@@ -67,12 +67,12 @@ const FAQ = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-0">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-card rounded-2xl px-6 border-0"
+                className="faq-item px-0"
               >
                 <AccordionTrigger className="text-left font-semibold hover:no-underline py-5 text-base">
                   {faq.question}

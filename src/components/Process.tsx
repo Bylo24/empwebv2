@@ -1,63 +1,52 @@
 import { motion } from "framer-motion";
-import { Search, Wrench, Rocket, BarChart3 } from "lucide-react";
 
 const steps = [
   {
-    number: "01",
-    icon: Search,
+    number: "1",
     title: "Discover & Strategize",
     description:
-      "We dive deep into your brand, goals, and audience. Then we map out a clear plan that actually fits your business.",
+      "We get to know your brand, your goals, and who you're trying to reach — then map out a clear plan that actually fits.",
   },
   {
-    number: "02",
-    icon: Wrench,
-    title: "Build & Configure",
+    number: "2",
+    title: "Build & Launch",
     description:
-      "Our team constructs your growth infrastructure—ads, funnels, automation—engineered to convert from day one.",
+      "Our team gets stuck in, mixing smart strategy with creative thinking to produce content and assets that fit your brand — right down to the details.",
   },
   {
-    number: "03",
-    icon: Rocket,
-    title: "Launch & Execute",
+    number: "3",
+    title: "Optimize & Iterate",
     description:
-      "We go live with precision. Every campaign, every touchpoint, every conversion path is monitored and optimized.",
+      "We dig into your brand, goals, and audience, then sketch out a game plan that works.",
   },
   {
-    number: "04",
-    icon: BarChart3,
-    title: "Scale & Compound",
+    number: "4",
+    title: "Refine & Grow",
     description:
-      "Once it's working, we double down. Measuring, tweaking, and scaling what drives real revenue growth.",
+      "Once it's live, we keep at it — measuring, tweaking, and making sure it keeps doing its job.",
   },
 ];
 
 const Process = () => {
   return (
-    <section id="process" className="py-24 px-6 relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="process" className="py-24 px-6 bg-secondary/30">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <span className="section-badge mb-4">Our Process</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">
-            From idea to impact
+          <span className="section-badge mb-4">Our Work Process</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6">
+            From idea to impact—our process makes it easy, exciting, and effective!
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A clear, proven process that takes your business from where it is to where it needs to be.
-          </p>
         </motion.div>
 
         {/* Process steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -65,30 +54,15 @@ const Process = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative"
+              className="bg-background rounded-2xl p-6 border border-border"
             >
-              {/* Connector line for desktop */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-40px)] h-px bg-gradient-to-r from-primary/30 to-transparent" />
-              )}
-
-              <div className="flex flex-col items-center text-center">
-                {/* Step number & icon */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <step.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <span className="absolute -top-2 -right-2 text-xs font-bold text-accent bg-background px-2 py-0.5 rounded-full border border-border">
-                    {step.number}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
+              <div className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center text-lg font-bold mb-4">
+                {step.number}
               </div>
+              <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </div>
