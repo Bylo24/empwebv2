@@ -55,7 +55,7 @@ const Services = () => {
   const currentService = services.find((s) => s.id === activeService)!;
 
   return (
-    <section id="services" className="py-20 px-6">
+    <section id="services" className="section-base">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div

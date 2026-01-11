@@ -29,7 +29,7 @@ const AboutUs = () => {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden py-20 px-6"
+      className="relative overflow-hidden section-base"
     >
       <motion.div className="relative z-10">
         <div className="max-w-5xl mx-auto relative">

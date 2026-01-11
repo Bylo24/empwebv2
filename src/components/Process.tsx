@@ -29,7 +29,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section id="process" className="py-20 px-6 bg-background">
+    <section id="process" className="section-base bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div

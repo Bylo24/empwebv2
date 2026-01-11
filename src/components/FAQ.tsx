@@ -41,7 +41,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 px-6">
+    <section id="faq" className="section-base">
       <div className="max-w-3xl mx-auto">
         {/* Section header */}
         <motion.div

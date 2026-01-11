@@ -355,7 +355,7 @@ const WorkWithUs = () => {
         _subject: `(Emporom) New (${rating}/5 rating) Inbound Lead!`,
         _template: "table",
       };
-      const response = await fetch("https://formsubmit.co/ajax/samuelhowell247@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/logan@emporom.org", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

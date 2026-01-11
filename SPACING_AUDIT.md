@@ -30,3 +30,8 @@
 - Padding is `py-12` to let the enlarged logo rest comfortably while avoiding a bottom-heavy feel.
 
 This audit ensures each section now shares a deliberate `20`-unit vertical rhythm (with hero and footer providing their own visual anchors) so the page neither feels tight nor overly stretched.
+
+### Updated consistency check
+- Added the `.section-base` helper (py-20 px-6) and applied it consistently across Services, Process, About, Visual, FAQ, and CTA so the layout is tied to a single spacing definition.
+- The “Inside the Work” clip still carries a large `mt-16` between the copy and the rounded video container, keeping the text grouped while giving the video room to breathe.
+- Building the site refreshes the bundle each time (`npm run build`) to capture these spacing updates.
