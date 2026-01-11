@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -26,6 +26,7 @@
 
     --accent: 16 100% 50%;
     --accent-foreground: 0 0% 100%;
+    --brand-accent: #f97316;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -97,12 +98,17 @@
 }
 
 @layer components {
-  .accent-text {
-    color: hsl(16 100% 50%);
-  }
-
   .section-badge {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-secondary border border-border;
+  }
+
+  .text-keyword {
+    @apply inline-flex items-center rounded-[0.45rem];
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(249, 115, 22, 0.15);
+    color: var(--foreground);
+    line-height: 1.4;
+    font-weight: inherit;
   }
 
   .nav-link {
@@ -110,12 +116,11 @@
   }
 
   .service-tab {
-    @apply px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer;
-    @apply text-muted-foreground hover:text-foreground;
+    @apply inline-flex items-center justify-center gap-2 border border-border rounded-full px-6 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 cursor-pointer bg-background hover:text-foreground hover:border-foreground;
   }
 
   .service-tab-active {
-    @apply bg-primary text-primary-foreground;
+    @apply border-primary bg-primary text-primary-foreground shadow-none;
   }
 
   .process-card {

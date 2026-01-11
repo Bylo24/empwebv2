@@ -55,7 +55,7 @@ const Services = () => {
   const currentService = services.find((s) => s.id === activeService)!;
 
   return (
-    <section id="services" className="py-24 px-6">
+    <section id="services" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -67,7 +67,7 @@ const Services = () => {
         >
           <span className="section-badge mb-4">✦ Our services</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6">
-            Services designed to help your brand shine brighter.
+            <span className="text-keyword">Services</span> designed to help your brand shine brighter.
           </h2>
         </motion.div>
 
@@ -108,9 +108,6 @@ const Services = () => {
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   {currentService.description}
                 </p>
-                <button className="text-sm font-semibold underline underline-offset-4 hover:text-accent transition-colors">
-                  View Details
-                </button>
               </div>
               <div className="space-y-3">
                 {currentService.features.map((feature) => (

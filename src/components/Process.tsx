@@ -29,7 +29,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section id="process" className="py-24 px-6 bg-secondary/30">
+    <section id="process" className="py-20 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -41,7 +41,7 @@ const Process = () => {
         >
           <span className="section-badge mb-4">Our Work Process</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6">
-            From idea to impact—our process makes it easy, exciting, and effective!
+            <span className="text-keyword">From idea to impact</span>—our process makes it easy, exciting, and effective!
           </h2>
         </motion.div>
 

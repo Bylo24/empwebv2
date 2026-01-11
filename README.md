@@ -71,3 +71,15 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Tracking integrations
+
+The site now loads Meta Pixel and Google tracking scripts automatically when the corresponding Vite variables are defined. Supply them in your `.env` file like this:
+
+```
+VITE_META_PIXEL_ID=your_meta_pixel_id
+VITE_GOOGLE_GTAG_ID=G-XXXXXXXXXX
+VITE_GOOGLE_ADS_ID=AW-XXXXXXXXXX
+```
+
+Only the values you provide will be injected, so you can roll out one network at a time without touching the code.

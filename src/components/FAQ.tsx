@@ -35,13 +35,13 @@ const faqs = [
   {
     question: "How do I get started?",
     answer:
-      "It's easy! Just click that shiny 'Contact Us' button, shoot us a message, or give us a call. We'll grab coffee (virtually or in-person) and start brainstorming magic together.",
+      "Hit 'Apply to Work With Us' at the top, tell us about your goals through the short intake, and we'll reach out for a chat. From there we lock in the best next steps together.",
   },
 ];
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 px-6">
+    <section id="faq" className="py-20 px-6">
       <div className="max-w-3xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -53,7 +53,7 @@ const FAQ = () => {
         >
           <span className="section-badge mb-4">Frequently Asked Questions</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6 mb-4">
-            Got questions? Here's everything you need to know.
+            <span className="text-keyword">Got questions?</span> Here's everything you need to know.
           </h2>
           <p className="text-muted-foreground">
             The answers you're probably looking for — all right here.
