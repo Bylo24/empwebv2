@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Process", href: "#process" },
-  { name: "Reviews", href: "#reviews" },
-  { name: "Pricing", href: "#pricing" },
-];
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   return (
@@ -20,22 +13,29 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <motion.a
           href="#"
-          className="text-xl font-bold text-foreground tracking-tight"
+          className="flex items-center"
           whileHover={{ scale: 1.02 }}
         >
-          StudioX.
+          <img src={logo} alt="Emporom Media" className="h-6 md:h-7" />
         </motion.a>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link text-sm font-medium">
-              {link.name}
-            </a>
-          ))}
+          <a href="#services" className="nav-link text-sm font-medium">
+            Services
+          </a>
+          <a href="#process" className="nav-link text-sm font-medium">
+            Process
+          </a>
+          <a href="#about" className="nav-link text-sm font-medium">
+            About Us
+          </a>
+          <a href="#faq" className="nav-link text-sm font-medium">
+            FAQ
+          </a>
         </div>
 
         <Button variant="default" size="sm">
-          Chat To Us
+          Apply Now
         </Button>
       </nav>
     </motion.header>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <span className="text-lg font-bold">StudioX.</span>
+          <img src={logo} alt="Emporom Media" className="h-5" />
         </div>
 
         <nav className="flex items-center gap-6">
@@ -21,16 +22,16 @@ const Footer = () => {
           <a href="#process" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Process
           </a>
+          <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            About
+          </a>
           <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             FAQ
-          </a>
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Contact
           </a>
         </nav>
 
         <span className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} StudioX. All rights reserved.
+          © {new Date().getFullYear()} Emporom Media. All rights reserved.
         </span>
       </div>
     </motion.footer>
