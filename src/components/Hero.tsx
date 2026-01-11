@@ -34,7 +34,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row items-start gap-4 mb-6"
         >
           <Button variant="default" size="lg">
-            Book With Us
+            Apply to Work With Us
           </Button>
         </motion.div>
 

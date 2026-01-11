@@ -18,7 +18,7 @@ const CTA = () => {
           Let's chat about your goals and see how we can help you grow. No pressure, just good conversation.
         </p>
         <Button variant="default" size="lg">
-          Book a Call
+          Apply to Work With Us
         </Button>
       </motion.div>
     </section>
