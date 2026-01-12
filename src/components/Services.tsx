@@ -8,8 +8,11 @@ const services = [
     icon: Megaphone,
     title: "Digital Marketing",
     headline: "Digital Marketing",
+    tagline:
+      "Cast a brighter signal across paid, owned, and earned channels while feeding a conversion-focused playbook.",
     description:
-      "Let's face it, the internet is a noisy place. But with our Digital Marketing services, you won't just stand out—you'll shine. We'll help you show up where your customers are hanging out, whether that's Google, Instagram, or somewhere in between.",
+      "Let's face it, the internet is a noisy place. Our Digital Marketing services are about commanding attention and turning engagement into predictable revenue, whether that's Google, Instagram, or something in between.",
+    focusAreas: ["Performance media", "Attribution clarity", "Audience orchestration"],
     features: [
       "SEO (Search Engine Optimization)",
       "PPC Advertising",
@@ -17,29 +20,37 @@ const services = [
       "Email Marketing",
       "Content Marketing",
     ],
+    outcome: "You get an always-on pipeline, transparent reporting, and creative concepts that can be deployed rapidly.",
   },
   {
     id: "web-design",
     icon: Globe,
     title: "Web Design and Development",
-    headline: "Web Design and Development",
+    headline: "Web Design & Development",
+    tagline:
+      "A website that feels both meticulously crafted and ruthlessly performance-driven, built for the buyer journey.",
     description:
-      "Your website is like your digital handshake—it's the first thing people notice about you online. Our Web Design & Development services are all about making that handshake firm, friendly, and unforgettable.",
+      "Your website is like your digital handshake. We craft experiences that feel premium, yet guide visitors toward measurable action with intentional UX, purposeful copy, and strategic launches.",
+    focusAreas: ["Conversion-first UX", "CMS sustainability", "Page speed"],
     features: [
-      "UI UX Design",
+      "UI / UX Design",
       "Custom Website Design",
       "E-Commerce Development",
       "Content Management Systems (CMS)",
       "Website Maintenance and Support",
     ],
+    outcome: "The end product feels unmistakably yours but is optimized for speed, accessibility, and scale.",
   },
   {
     id: "branding",
     icon: Palette,
     title: "Branding & Creative Services",
     headline: "Branding & Creative Services",
+    tagline:
+      "More than a logo—narratives, systems, and seamless creative that keep your brand consistent across every touchpoint.",
     description:
-      "Your brand is so much more than a logo—it's your story, your personality, and your promise to customers. Our Branding & Creative Services bring your identity to life in a way that's bold, beautiful, and 100% you.",
+      "Your brand is your voice and promise. We translate that into visual language, tone, and assets that feel bold, refined, and unmistakably different.",
+    focusAreas: ["Narrative clarity", "Visual consistency", "Creative systems"],
     features: [
       "Logo Design",
       "Brand Strategy & Positioning",
@@ -47,12 +58,14 @@ const services = [
       "Brand Guidelines",
       "Social media graphics",
     ],
+    outcome: "You leave with a toolkit that lets your brand stay cohesive across every campaign, platform, and partner.",
   },
 ];
 
 const Services = () => {
   const [activeService, setActiveService] = useState(services[0].id);
   const currentService = services.find((s) => s.id === activeService)!;
+  const CurrentIcon = currentService.icon;
 
   return (
     <section id="services" className="section-base">
@@ -100,20 +113,38 @@ const Services = () => {
             transition={{ duration: 0.3 }}
             className="bg-secondary/30 rounded-3xl p-8 md:p-12"
           >
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
+            <div className="grid md:grid-cols-[1.1fr,0.9fr] gap-8">
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  <CurrentIcon className="h-4 w-4" />
+                  <span>Focus</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
                   {currentService.headline}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-lg font-semibold">{currentService.tagline}</p>
+                <p className="text-muted-foreground leading-relaxed">
                   {currentService.description}
                 </p>
+                <div className="flex flex-wrap gap-3">
+                  {currentService.focusAreas.map((focus) => (
+                    <span
+                      key={focus}
+                      className="rounded-2xl border border-border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
+                    >
+                      {focus}
+                    </span>
+                  ))}
+                </div>
+                <div className="rounded-2xl border border-border bg-background p-4 text-sm font-medium text-muted-foreground">
+                  {currentService.outcome}
+                </div>
               </div>
               <div className="space-y-3">
                 {currentService.features.map((feature) => (
                   <div
                     key={feature}
-                    className="flex items-center gap-3 px-4 py-3 bg-background rounded-xl border border-border"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-background"
                   >
                     <div className="w-2 h-2 rounded-full bg-foreground" />
                     <span className="text-sm font-medium">{feature}</span>

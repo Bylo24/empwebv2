@@ -12,38 +12,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.25] mb-8 text-center mx-auto"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.45] mb-8 text-center mx-auto flex flex-col gap-4"
         >
           <span className="block">We help ambitious</span>
           <span className="block">brands achieve</span>
-          <span className="block sm:inline-block">
+          <span className="block">
             <RotatingWord
-              words={[
-                "growth",
-                "scale",
-                "traction",
-                "momentum",
-                "results",
-                "performance",
-                "progress",
-                "success",
-                "efficiency",
-                "consistency",
-                "stability",
-                "longevity",
-                "sustainability",
-                "resilience",
-                "revenue",
-                "profitability",
-                "conversions",
-                "visibility",
-                "reach",
-                "authority",
-                "relevance",
-                "clarity",
-                "focus",
-                "alignment",
-              ]}
+              words={["growth", "traction", "momentum", "scale", "results", "performance"]}
             />
             <span className="inline">.</span>
           </span>

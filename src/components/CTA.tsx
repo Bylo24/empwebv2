@@ -13,19 +13,18 @@ const CTA = () => {
           transition={{ duration: 0.6 }}
           className="section-heading section-heading--narrow"
         >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        <h2 className="flex flex-col gap-3 text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
           <span className="block">Ready to make your brand</span>
-          <span className="block">
+          <span className="block pt-1">
             <RotatingWord
               words={[
-                "shine",
-                "stand out",
-                "gain traction",
-                "convert more",
-                "scale",
+                "grow faster?",
+                "gain traction?",
+                "convert more?",
+                "stand out?",
+                "scale smarter?",
               ]}
             />
-            ?
           </span>
         </h2>
         <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">

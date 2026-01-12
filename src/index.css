@@ -44,6 +44,9 @@
     --section-padding-horizontal: clamp(1.25rem, 4vw, 3.5rem);
     --section-heading-gap: clamp(0.75rem, 1.5vw, 1.25rem);
     --section-body-gap: clamp(1.25rem, 2vw, 2rem);
+    --charcoal: #1f2933;
+    --charcoal-foreground: #f5f5f5;
+    --charcoal-dark: #111825;
   }
 
   .dark {
@@ -135,17 +138,18 @@
 
   .text-keyword {
     @apply inline-flex items-center rounded-[0.45rem];
-    padding: 0.15rem 0.55rem;
+    padding: 0.4rem 0.9rem;
     background-color: #1f2933;
     color: #f5f5f5;
     line-height: 1.4;
     font-weight: inherit;
+    white-space: nowrap;
   }
 
   h1,
   h2,
   h3 {
-    line-height: 1.4;
+    line-height: 1.6;
   }
 
   .nav-link {
@@ -172,6 +176,18 @@
 
   .faq-item {
     @apply border-b border-border;
+  }
+
+  .bg-charcoal {
+    background-color: var(--charcoal);
+  }
+
+  .text-charcoal-foreground {
+    color: var(--charcoal-foreground);
+  }
+
+  .hover\\:bg-charcoal-dark:hover {
+    background-color: var(--charcoal-dark);
   }
 
 }

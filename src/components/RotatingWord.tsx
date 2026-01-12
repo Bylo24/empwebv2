@@ -27,7 +27,16 @@ const RotatingWord = ({ words, className, interval = 4000 }: RotatingWordProps) 
       }
 
       timeoutRef.current = window.setTimeout(() => {
-        setIndex((prev) => (prev + 1) % words.length);
+        setIndex((prev) => {
+          if (words.length <= 1) {
+            return prev;
+          }
+          let next = (prev + 1) % words.length;
+          if (next === prev) {
+            next = (prev + 2) % words.length;
+          }
+          return next;
+        });
         setIsFading(false);
       }, fadeDuration);
     };

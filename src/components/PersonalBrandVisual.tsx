@@ -5,6 +5,7 @@ const PersonalBrandVisual = () => {
 
   const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const handleEnded = () => {
     if (videoRef.current) {
@@ -35,6 +36,26 @@ const PersonalBrandVisual = () => {
 
     return () => observer.disconnect();
   }, []);
+ 
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = isFullscreen ? "hidden" : originalOverflow;
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsFullscreen(false);
+      }
+    };
+    if (isFullscreen) {
+      document.addEventListener("keydown", handleKeydown);
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, [isFullscreen]);
   return (
     <section className="section-base" aria-label="Agency work highlight">
       <div className="max-w-5xl mx-auto text-center">
@@ -47,7 +68,11 @@ const PersonalBrandVisual = () => {
         </div>
         <div
           ref={containerRef}
-          className="mt-12 relative overflow-hidden rounded-3xl border border-border shadow-xl aspect-[16/9]"
+          className={`relative overflow-hidden rounded-3xl border border-border shadow-xl ${
+            isFullscreen
+              ? "fixed inset-4 z-50 h-[calc(100%-2rem)] w-[calc(100%-2rem)] bg-background/90"
+              : "mt-12 aspect-[16/9]"
+          }`}
         >
           <video
             ref={videoRef}
@@ -60,7 +85,27 @@ const PersonalBrandVisual = () => {
             preload="none"
             className="absolute inset-0 w-full h-full object-cover"
           />
+          {isFullscreen && (
+            <button
+              type="button"
+              onClick={() => setIsFullscreen(false)}
+              className="absolute top-4 right-4 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground transition hover:text-foreground"
+            >
+              Close
+            </button>
+          )}
         </div>
+        {!isFullscreen && (
+          <div className="sm:hidden mt-6 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setIsFullscreen(true)}
+              className="rounded-full border border-border px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground transition hover:border-foreground hover:text-foreground"
+            >
+              View fullscreen
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
