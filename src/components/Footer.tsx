@@ -50,6 +50,12 @@ const Footer = () => {
 
         <div className="text-sm text-muted-foreground flex flex-col items-center gap-1 text-center order-3 mt-4 md:mt-0 md:items-end md:text-right">
           <a
+            href="mailto:sam@emporom.media"
+            className="hover:text-foreground transition-colors"
+          >
+            sam@emporom.media
+          </a>
+          <a
             href="mailto:logan@emporom.org"
             className="hover:text-foreground transition-colors"
           >
