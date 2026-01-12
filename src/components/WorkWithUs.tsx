@@ -396,9 +396,38 @@ const WorkWithUs = () => {
   };
 
   const applicantName = formData.fullName?.split(" ")[0] || "Sam";
-  const progressPercent = Math.round(
-    (Math.min(stepIndex + 1, intakeSteps.length) / intakeSteps.length) * 100,
-  );
+
+  const getFilledCount = (stepIdx: number) => {
+    const required = requiredFieldsPerStep[stepIdx] ?? [];
+    if (!required.length) {
+      return { filled: 0, total: 0 };
+    }
+
+    let filled = 0;
+    required.forEach((field) => {
+      const value = formData[field as keyof FormData];
+      if (Array.isArray(value)) {
+        if (value.length > 0) filled += 1;
+        return;
+      }
+      if (typeof value === "string" && value.trim() !== "") {
+        filled += 1;
+      } else if (value) {
+        filled += 1;
+      }
+    });
+
+    return { filled, total: required.length };
+  };
+
+  const { filled, total } = getFilledCount(stepIndex);
+  const currentStepCompletion = total ? filled / total : 1;
+
+  const rawProgress =
+    (Math.min(stepIndex + currentStepCompletion, intakeSteps.length) /
+      intakeSteps.length) *
+    100;
+  const progressPercent = Math.round(rawProgress);
 
   return (
     <section className="w-full px-0 py-8 text-foreground">

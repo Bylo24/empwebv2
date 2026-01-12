@@ -49,13 +49,13 @@ const FAQ = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="section-heading section-heading--narrow"
         >
-          <span className="section-badge mb-4">Frequently Asked Questions</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6 mb-4">
+          <span className="section-badge">Frequently Asked Questions</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
             <span className="text-keyword">Got questions?</span> Here's everything you need to know.
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground text-base md:text-lg mt-2">
             The answers you're probably looking for — all right here.
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ const FAQ = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Accordion type="single" collapsible className="space-y-0">
+          <Accordion type="single" collapsible className="faq-list">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}

@@ -63,10 +63,10 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="section-heading"
         >
-          <span className="section-badge mb-4">✦ Our services</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6">
+          <span className="section-badge">✦ Our services</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
             <span className="text-keyword">Services</span> designed to help your brand shine brighter.
           </h2>
         </motion.div>

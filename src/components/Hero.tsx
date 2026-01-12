@@ -1,21 +1,52 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import RotatingWord from "@/components/RotatingWord";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col items-center justify-center px-6 pt-32 pb-8 sm:pb-12 text-center gap-6">
+    <section className="flex flex-col items-center justify-center px-6 pt-32 pb-10 sm:pb-12 text-center gap-8">
       <div className="max-w-5xl mx-auto text-center">
         {/* Main Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-center mx-auto"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.25] mb-8 text-center mx-auto"
         >
-          <span className="text-keyword">Big ideas</span> and{" "}
-          <span className="text-keyword">smart strategy</span>, backed by{" "}
-          <span className="text-keyword">creativity</span> that gets results.
+          <span className="block">We help ambitious</span>
+          <span className="block">brands achieve</span>
+          <span className="block sm:inline-block">
+            <RotatingWord
+              words={[
+                "growth",
+                "scale",
+                "traction",
+                "momentum",
+                "results",
+                "performance",
+                "progress",
+                "success",
+                "efficiency",
+                "consistency",
+                "stability",
+                "longevity",
+                "sustainability",
+                "resilience",
+                "revenue",
+                "profitability",
+                "conversions",
+                "visibility",
+                "reach",
+                "authority",
+                "relevance",
+                "clarity",
+                "focus",
+                "alignment",
+              ]}
+            />
+            <span className="inline">.</span>
+          </span>
         </motion.h1>
 
         {/* Subheadline */}

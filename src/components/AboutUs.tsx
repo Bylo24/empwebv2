@@ -38,9 +38,9 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="section-heading section-heading--narrow"
           >
-            <span className="section-badge mb-4">About us</span>
+            <span className="section-badge">About us</span>
           </motion.div>
 
           <motion.div
@@ -48,7 +48,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-center mb-16 max-w-3xl mx-auto space-y-4"
+          className="section-body text-center mb-12"
           >
             <p className="text-lg md:text-xl leading-relaxed">
               We’re Logan and Sam, the team behind Emporom Media — a Wellington-based
@@ -76,7 +76,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-12 relative z-10"
+            className="flex flex-wrap justify-center gap-12 relative z-10 mt-8"
           >
             {team.map((member) => (
               <div

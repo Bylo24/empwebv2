@@ -1,19 +1,32 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import RotatingWord from "@/components/RotatingWord";
 
 const CTA = () => {
   return (
     <section className="section-base">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="max-w-3xl mx-auto text-center"
-      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="section-heading section-heading--narrow"
+        >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          Ready to make your <span className="text-keyword">brand shine?</span>
+          <span className="block">Ready to make your brand</span>
+          <span className="block">
+            <RotatingWord
+              words={[
+                "shine",
+                "stand out",
+                "gain traction",
+                "convert more",
+                "scale",
+              ]}
+            />
+            ?
+          </span>
         </h2>
         <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
           Let's chat about your goals and see how we can help you grow. No pressure, just good conversation.

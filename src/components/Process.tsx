@@ -37,16 +37,16 @@ const Process = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="section-heading"
         >
-          <span className="section-badge mb-4">Our Work Process</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6">
+          <span className="section-badge">Our Work Process</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             <span className="text-keyword">From idea to impact</span>—our process makes it easy, exciting, and effective!
           </h2>
         </motion.div>
 
         {/* Process steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
