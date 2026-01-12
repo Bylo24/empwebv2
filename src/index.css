@@ -103,7 +103,7 @@
   .text-keyword {
     @apply inline-flex items-center rounded-[0.45rem];
     padding: 0.2rem 0.6rem;
-    background-color: var(--brand-accent);
+    background-color: color-mix(in srgb, var(--brand-accent) 80%, #fff);
     color: var(--foreground);
     line-height: 1.4;
     font-weight: inherit;
