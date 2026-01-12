@@ -30,6 +30,7 @@ const PersonalBrandVisual = () => {
             muted
             playsInline
             onEnded={handleEnded}
+            preload="none"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>

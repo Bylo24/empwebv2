@@ -84,11 +84,12 @@ const AboutUs = () => {
                 className="flex flex-col items-center"
               >
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-4 border-2 border-border">
-                  <img
-                    src={member.image}
-                    alt={`${member.firstName} ${member.lastName}`}
-                    className="w-full h-full object-cover"
-                  />
+                <img
+                  src={member.image}
+                  alt={`${member.firstName} ${member.lastName}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 </div>
                 <h3 className="text-lg font-bold">
                   {member.firstName} {member.lastName}

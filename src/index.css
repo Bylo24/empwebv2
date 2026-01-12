@@ -6,27 +6,21 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
-
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 8%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
-
-    --primary: 0 0% 8%;
+    --background: 30 60% 98%;
+    --foreground: 210 15% 12%;
+    --card: 30 25% 95%;
+    --card-foreground: 210 12% 12%;
+    --popover: 30 25% 98%;
+    --popover-foreground: 210 12% 12%;
+    --primary: 210 15% 12%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
-
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-
-    --accent: 16 100% 50%;
+    --secondary: 30 20% 93%;
+    --secondary-foreground: 210 10% 35%;
+    --muted: 30 20% 92%;
+    --muted-foreground: 210 12% 45%;
+    --accent: 25 70% 72%;
     --accent-foreground: 0 0% 100%;
-    --brand-accent: #f97316;
+    --brand-accent: #f5c9b0;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -109,7 +103,7 @@
   .text-keyword {
     @apply inline-flex items-center rounded-[0.45rem];
     padding: 0.2rem 0.6rem;
-    background-color: rgba(249, 115, 22, 0.15);
+    background-color: var(--brand-accent);
     color: var(--foreground);
     line-height: 1.4;
     font-weight: inherit;
@@ -120,11 +114,17 @@
   }
 
   .service-tab {
-    @apply inline-flex items-center justify-center gap-2 border border-border rounded-full px-6 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 cursor-pointer bg-background hover:text-foreground hover:border-foreground;
+    @apply inline-flex items-center justify-center gap-2 border border-border rounded-full px-6 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 cursor-pointer bg-background shadow-sm;
+  }
+
+  .service-tab:hover {
+    background-color: rgba(206, 188, 176, 0.35);
+    color: var(--foreground);
+    border-color: var(--foreground);
   }
 
   .service-tab-active {
-    @apply border-primary bg-primary text-primary-foreground shadow-none;
+    @apply border-foreground bg-foreground text-background shadow-none;
   }
 
   .process-card {

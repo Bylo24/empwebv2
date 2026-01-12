@@ -60,9 +60,7 @@ const Process = () => {
                 {step.number}
               </div>
               <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>

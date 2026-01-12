@@ -34,7 +34,7 @@ const Footer = () => {
               href="https://www.linkedin.com/company/emporom-digital-marketing/posts/?feedView=all"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
+              className="flex w-full justify-center items-center gap-2 hover:text-foreground transition-colors md:w-auto"
             >
               <Linkedin className="w-4 h-4" />
               LinkedIn
@@ -43,7 +43,7 @@ const Footer = () => {
               href="https://www.instagram.com/emporom.media/"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
+              className="flex w-full justify-center items-center gap-2 hover:text-foreground transition-colors md:w-auto"
             >
               <Instagram className="w-4 h-4" />
               Instagram
