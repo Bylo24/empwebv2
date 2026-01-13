@@ -15,6 +15,33 @@ const PersonalBrandVisual = () => {
   };
 
   useEffect(() => {
+    if (!videoSrc || !videoRef.current) {
+      return;
+    }
+
+    const video = videoRef.current;
+    const playVideo = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+          // ignore autoplay blocking
+        });
+      }
+    };
+
+    const handleCanPlay = () => {
+      playVideo();
+    };
+
+    video.addEventListener("canplay", handleCanPlay);
+    playVideo();
+
+    return () => {
+      video.removeEventListener("canplay", handleCanPlay);
+    };
+  }, [videoSrc]);
+
+  useEffect(() => {
     if (!containerRef.current) return;
 
     const observer = new IntersectionObserver(
