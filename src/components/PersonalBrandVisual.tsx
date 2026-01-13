@@ -14,30 +14,39 @@ const PersonalBrandVisual = () => {
     }
   };
 
+  const tryPlay = () => {
+    if (!videoRef.current) {
+      return;
+    }
+    const playPromise = videoRef.current.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        // ignore autoplay blocking
+      });
+    }
+  };
+
   useEffect(() => {
     if (!videoSrc || !videoRef.current) {
       return;
     }
 
     const video = videoRef.current;
-    const playVideo = () => {
-      const playPromise = video.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {
-          // ignore autoplay blocking
-        });
-      }
-    };
+    video.muted = true;
+    video.playsInline = true;
 
     const handleCanPlay = () => {
-      playVideo();
+      tryPlay();
     };
 
     video.addEventListener("canplay", handleCanPlay);
-    playVideo();
+    const playTimeout = window.setTimeout(() => {
+      tryPlay();
+    }, 50);
 
     return () => {
       video.removeEventListener("canplay", handleCanPlay);
+      window.clearTimeout(playTimeout);
     };
   }, [videoSrc]);
 
@@ -101,17 +110,18 @@ const PersonalBrandVisual = () => {
               : "mt-12 aspect-[16/9]"
           }`}
         >
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-            onEnded={handleEnded}
-            preload="none"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+              onEnded={handleEnded}
+              onLoadedData={tryPlay}
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           {isFullscreen && (
             <button
               type="button"
