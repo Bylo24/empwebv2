@@ -15,22 +15,41 @@ const loadScript = (src: string, id: string) => {
 
 const DEFAULT_META_PIXEL_ID = "897430143196782";
 
+type FbqWithExtras = {
+  (...args: unknown[]): void;
+  queue: unknown[][];
+  callMethod?: (...args: unknown[]) => void;
+  loaded?: boolean;
+  version?: string;
+  push?: FbqWithExtras;
+};
+
 const initMetaPixel = (pixelId: string) => {
   if (!pixelId) return;
 
   if (!window.fbq) {
     const fbq = function (...args: unknown[]) {
-      (fbq.q = fbq.q || []).push(args);
+      const fbqWithExtras = fbq as FbqWithExtras;
+      if (fbqWithExtras.callMethod) {
+        fbqWithExtras.callMethod.apply(fbqWithExtras, args as unknown[]);
+      } else {
+        fbqWithExtras.queue.push(args);
+      }
+    } as FbqWithExtras;
+    fbq.queue = [];
+    fbq.callMethod = function (...args: unknown[]) {
+      fbq.queue.push(args);
     };
-    fbq.q = fbq.q || [];
-    fbq.l = Date.now();
+    fbq.push = fbq;
+    fbq.loaded = true;
+    fbq.version = "2.0";
     window.fbq = fbq;
+
+    loadScript("https://connect.facebook.net/en_US/fbevents.js", "facebook-pixel");
   }
 
   window.fbq!("init", pixelId);
   window.fbq!("track", "PageView");
-
-  loadScript("https://connect.facebook.net/en_US/fbevents.js", "facebook-pixel");
 };
 
 const initGoogleTags = (googleIds: string[]) => {
