@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Megaphone, Globe, Palette } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -150,6 +152,19 @@ const Services = () => {
                     <span className="text-sm font-medium">{feature}</span>
                   </div>
                 ))}
+                {currentService.id === "web-design" && (
+                  <div className="mt-6 rounded-2xl border border-accent/30 bg-accent/5 p-5 space-y-3">
+                    <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
+                      Free Website Demo
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Preview the same hero, UX flow, and conversion copy we use inside the live V1 web landing offer.
+                    </p>
+                    <Button asChild variant="outline" size="sm">
+                      <Link to="/v1weblanding">View the web design experience</Link>
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
