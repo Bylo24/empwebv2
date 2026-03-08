@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import HeroSection from "@/components/offer/HeroSection";
 import HowItWorksSection from "@/components/offer/HowItWorksSection";
 import LeadFormSection from "@/components/offer/LeadFormSection";
@@ -9,6 +10,12 @@ import WhatYouGetSection from "@/components/offer/WhatYouGetSection";
 import "./V1WebLanding.css";
 
 const V1WebLanding = () => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0 });
+    }
+  }, []);
+
   return (
     <main className="v1-web-landing min-h-screen bg-background text-foreground pt-20">
       <OfferNav />
