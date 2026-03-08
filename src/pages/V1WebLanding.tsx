@@ -1,5 +1,5 @@
-import FAQSection from "@/components/offer/FAQSection";
-import ProblemSection from "@/components/offer/ProblemSection";
+import FAQSection from "@/FAQSection";
+import ProblemSection from "@/ProblemSection";
 
 const V1WebLanding = () => {
   return (
