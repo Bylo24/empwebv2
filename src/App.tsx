@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WorkWithUsPage from "./pages/WorkWithUs";
+import WorkWithUsPage from "./components/WorkWithUs";
 import VideoUpload from "./pages/VideoUpload";
 <<<<<<< HEAD
 import V1WebLanding from "./pages/V1WebLanding";
