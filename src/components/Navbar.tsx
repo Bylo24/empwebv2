@@ -20,7 +20,7 @@ const Navbar = () => {
           <img src={logo} alt="Emporom Media" className="h-8 md:h-10 object-contain" />
         </motion.a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           <a href="#services" className="nav-link text-sm font-medium">
             Services
           </a>
@@ -33,19 +33,11 @@ const Navbar = () => {
           <a href="#faq" className="nav-link text-sm font-medium">
             FAQ
           </a>
-          <Link to="/v1weblanding" className="nav-link text-sm font-medium">
-            View Demo
-          </Link>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Button asChild variant="outline" size="sm">
-            <Link to="/v1weblanding">See Demo</Link>
-          </Button>
-          <Button asChild variant="default" size="sm">
-            <Link to="/work-with-us">Apply Now</Link>
-          </Button>
-        </div>
+        <Button asChild variant="default" size="sm">
+          <Link to="/work-with-us">Apply Now</Link>
+        </Button>
       </nav>
     </motion.header>
   );
