@@ -41,6 +41,12 @@ const LeadFormSection = () => {
       setStep(2);
     } else {
       setIsSubmitting(true);
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "FormSubmission", {
+          content_name: "Free Website Demo Application",
+          content_category: "Lead Form",
+        });
+      }
       try {
         const submitData = new FormData();
         submitData.append("Full Name", formData.fullName);
@@ -61,14 +67,6 @@ const LeadFormSection = () => {
           method: "POST",
           body: submitData,
         });
-
-        // Fire Meta Pixel lead event
-        if (typeof window !== "undefined" && (window as any).fbq) {
-          (window as any).fbq("track", "FormSubmission", {
-            content_name: "Free Website Demo Application",
-            content_category: "Lead Form",
-          });
-        }
 
         setSubmitted(true);
       } catch (error) {
