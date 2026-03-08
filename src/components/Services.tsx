@@ -158,7 +158,7 @@ const Services = () => {
                       Free Website Demo
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Preview the same hero, UX flow, and conversion copy we use inside the live V1 web landing offer.
+                      As a marketing agency, we build live, conversion-led website demos before you commit to a full build. See exactly how the hero, UX, and CTA sequence performs inside the V1 web landing experience.
                     </p>
                     <Button asChild variant="outline" size="sm">
                       <Link to="/v1weblanding">View the web design experience</Link>
