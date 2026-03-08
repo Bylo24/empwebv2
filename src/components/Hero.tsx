@@ -45,7 +45,7 @@ const Hero = () => {
             <Link to="/work-with-us">Apply to Work With Us</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link to="/v1weblanding">View V1 Web Landing</Link>
+            <Link to="/v1weblanding">Explore Web Design Offer</Link>
           </Button>
           <Button asChild variant="ghost" size="lg">
             <a href="#services" className="px-6 py-3 rounded-full border border-border">
