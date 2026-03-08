@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 12% 12%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 210 12% 12%;
+    --primary: 210 15% 12%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 20% 93%;
+    --secondary-foreground: 210 10% 35%;
+    --muted: 30 20% 92%;
+    --muted-foreground: 210 12% 45%;
+    --accent: 218 15% 18%;
+    --accent-foreground: 0 0% 100%;
+    --brand-accent: #1f2933;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 8%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 8%;
+
+    --section-padding-vertical: clamp(3.5rem, 5vw, 5.5rem);
+    --section-padding-horizontal: clamp(1.25rem, 4vw, 3.5rem);
+    --section-heading-gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    --section-body-gap: clamp(1.25rem, 2vw, 2rem);
+    --charcoal: #1f2933;
+    --charcoal-foreground: #f5f5f5;
+    --charcoal-dark: #111825;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 16 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 83%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 83%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fff;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-foreground;
+  }
+}
+
+@layer components {
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-secondary border border-border;
+  }
+
+  .section-base {
+    padding-block: var(--section-padding-vertical);
+    padding-inline: var(--section-padding-horizontal);
+  }
+
+  .section-heading {
+    @apply max-w-6xl mx-auto flex flex-col items-center text-center;
+    gap: var(--section-heading-gap);
+    margin-bottom: calc(var(--section-heading-gap) * 2);
+  }
+
+  .section-heading--narrow {
+    @apply max-w-3xl;
+  }
+
+  .section-content {
+    @apply max-w-4xl mx-auto text-center;
+    gap: var(--section-body-gap);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-body {
+    @apply max-w-4xl mx-auto space-y-6;
+  }
+
+
+  .faq-list {
+    @apply space-y-4;
+  }
+
+  .text-keyword {
+    @apply inline-flex items-center rounded-[0.45rem];
+    padding: 0.4rem 0.9rem;
+    background-color: #1f2933;
+    color: #f5f5f5;
+    line-height: 1.4;
+    font-weight: inherit;
+    white-space: nowrap;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.6;
+  }
+
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors duration-300;
+  }
+
+  .service-tab {
+    @apply inline-flex items-center justify-center gap-2 border border-border rounded-full px-6 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 cursor-pointer bg-background shadow-sm;
+  }
+
+  .service-tab:hover {
+    background-color: rgba(206, 188, 176, 0.35);
+    color: var(--foreground);
+    border-color: var(--foreground);
+  }
+
+  .service-tab-active {
+    @apply border-foreground bg-foreground text-background shadow-none;
+  }
+
+  .process-card {
+    @apply p-8 rounded-2xl bg-secondary/50 border border-border;
+  }
+
+  .faq-item {
+    @apply border-b border-border;
+  }
+
+  .bg-charcoal {
+    background-color: var(--charcoal);
+  }
+
+  .text-charcoal-foreground {
+    color: var(--charcoal-foreground);
+  }
+
+  .hover\\:bg-charcoal-dark:hover {
+    background-color: var(--charcoal-dark);
+  }
+
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
