@@ -64,7 +64,7 @@ const LeadFormSection = () => {
 
         // Fire Meta Pixel lead event
         if (typeof window !== "undefined" && (window as any).fbq) {
-          (window as any).fbq("track", "Lead", {
+          (window as any).fbq("track", "FormSubmission", {
             content_name: "Free Website Demo Application",
             content_category: "Lead Form",
           });
