@@ -24,8 +24,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/work-with-us" element={<WorkWithUsPage />} />
           <Route path="/v1weblanding" element={<V1WebLanding />} />
+          <Route path="/work-with-us" element={<WorkWithUsPage />} />
           <Route path="/upload" element={<VideoUpload />} />
           <Route path="/video/:slug" element={<VideoViewer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
