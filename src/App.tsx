@@ -6,7 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import WorkWithUsPage from "./pages/WorkWithUs";
+import WorkWithUsPage from "./components/WorkWithUs";
+import V1WebLanding from "./pages/V1WebLanding";
 import VideoUpload from "./pages/VideoUpload";
 import VideoViewer from "./pages/VideoViewer";
 import { VideoLibraryProvider } from "@/context/VideoLibraryContext";
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work-with-us" element={<WorkWithUsPage />} />
+          <Route path="/v1weblanding" element={<V1WebLanding />} />
           <Route path="/upload" element={<VideoUpload />} />
           <Route path="/video/:slug" element={<VideoViewer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
