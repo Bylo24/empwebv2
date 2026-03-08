@@ -54,26 +54,6 @@ const Hero = () => {
           </Button>
         </motion.div>
 
-        <div className="mt-6 flex flex-col items-center gap-2 text-sm text-muted-foreground max-w-3xl mx-auto">
-          <p className="text-center">
-            Website and web design work is front and center on this site—case studies, process, and layout
-            choices all mirror the experience inside the live offer.{" "}
-            <Link
-              to="/v1weblanding"
-              className="font-semibold text-accent underline-offset-2 hover:underline"
-            >
-              Preview the web design / V1 offer
-            </Link>
-            .
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground/70">
-            {["Website strategy", "Design systems", "Conversion copy", "Demo build"].map((item) => (
-              <span key={item} className="px-3 py-1 rounded-full border border-border/40">
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
