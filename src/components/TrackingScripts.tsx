@@ -13,6 +13,8 @@ const loadScript = (src: string, id: string) => {
   document.head.appendChild(script);
 };
 
+const DEFAULT_META_PIXEL_ID = "897430143196782";
+
 const initMetaPixel = (pixelId: string) => {
   if (!pixelId) return;
 
@@ -51,7 +53,8 @@ const initGoogleTags = (googleIds: string[]) => {
 };
 
 const TrackingScripts = () => {
-  const metaPixelId = import.meta.env.VITE_META_PIXEL_ID;
+  const envMetaPixelId = import.meta.env.VITE_META_PIXEL_ID;
+  const metaPixelId = envMetaPixelId || DEFAULT_META_PIXEL_ID;
   const googleGtagId = import.meta.env.VITE_GOOGLE_GTAG_ID;
   const googleAdsId = import.meta.env.VITE_GOOGLE_ADS_ID;
 
