@@ -158,10 +158,10 @@ const Services = () => {
                       Free Website Demo
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      As a marketing agency, we build live, conversion-led website demos before you commit to a full build. See exactly how the hero, UX, and CTA copy look in the V1 web landing experience.
+                      Want a free website demo? We’ll build a live version for your business so you can see exactly how it could look and perform—no commitment.
                     </p>
                     <Button asChild variant="outline" size="sm">
-                      <Link to="/v1weblanding">View the web design experience</Link>
+                      <Link to="/v1weblanding">I want a free demo</Link>
                     </Button>
                   </div>
                 )}
