@@ -74,12 +74,14 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/c
 
 ## Tracking integrations
 
-The site now loads Meta Pixel and Google tracking scripts automatically when the corresponding Vite variables are defined. Supply them in your `.env` file like this:
+The site now loads Meta Pixel, Google, and Microsoft Clarity tracking scripts automatically when the corresponding Vite variables are defined. Supply the ones you need in your `.env` file like this:
 
 ```
 VITE_META_PIXEL_ID=your_meta_pixel_id
 VITE_GOOGLE_GTAG_ID=G-XXXXXXXXXX
 VITE_GOOGLE_ADS_ID=AW-XXXXXXXXXX
+VITE_MICROSOFT_CLARITY_ID=clarity_project_id
 ```
 
 Only the values you provide will be injected, so you can roll out one network at a time without touching the code.
+Microsoft Clarity is configured to load only when a visitor reaches `/v1weblanding`, so it won't run on other routes unless you change that path in `src/components/TrackingScripts.tsx`.

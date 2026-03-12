@@ -17,22 +17,22 @@ const queryClient = new QueryClient();
 const App = () => (
   <VideoLibraryProvider>
     <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <TrackingScripts />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/v1weblanding" element={<V1WebLanding />} />
-          <Route path="/work-with-us" element={<WorkWithUsPage />} />
-          <Route path="/upload" element={<VideoUpload />} />
-          <Route path="/video/:slug" element={<VideoViewer />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <TrackingScripts />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/v1weblanding" element={<V1WebLanding />} />
+            <Route path="/work-with-us" element={<WorkWithUsPage />} />
+            <Route path="/upload" element={<VideoUpload />} />
+            <Route path="/video/:slug" element={<VideoViewer />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
     </QueryClientProvider>
   </VideoLibraryProvider>
 );
