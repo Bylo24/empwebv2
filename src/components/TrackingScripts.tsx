@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import Clarity from "@microsoft/clarity";
 
 const loadScript = (src: string, id: string) => {
   if (document.getElementById(id)) {
@@ -15,7 +16,6 @@ const loadScript = (src: string, id: string) => {
 };
 
 const DEFAULT_META_PIXEL_ID = "897430143196782";
-const CLARITY_SCRIPT_ID = "microsoft-clarity-script";
 
 type FbqWithExtras = {
   (...args: unknown[]): void;
@@ -24,22 +24,6 @@ type FbqWithExtras = {
   loaded?: boolean;
   version?: string;
   push?: FbqWithExtras;
-};
-
-type ClarityQueue = unknown[][];
-type ClarityFunction = ((...args: unknown[]) => void) & { q?: ClarityQueue };
-
-declare global {
-  interface Window {
-    clarity?: ClarityFunction;
-  }
-}
-
-const createClarityStub = (): ClarityFunction => {
-  const queue: ClarityQueue = [];
-  const stub = ((...args: unknown[]) => queue.push(args)) as ClarityFunction;
-  stub.q = queue;
-  return stub;
 };
 
 const initMetaPixel = (pixelId: string) => {
@@ -89,29 +73,6 @@ const initGoogleTags = (googleIds: string[]) => {
   });
 };
 
-const initMicrosoftClarity = (clarityId: string) => {
-  if (!clarityId || document.getElementById(CLARITY_SCRIPT_ID)) {
-    return;
-  }
-
-  if (!window.clarity) {
-    window.clarity = createClarityStub();
-  }
-
-  const script = document.createElement("script");
-  script.async = true;
-  script.defer = true;
-  script.src = `https://www.clarity.ms/tag/${clarityId}`;
-  script.id = CLARITY_SCRIPT_ID;
-
-  const firstScript = document.getElementsByTagName("script")[0];
-  if (firstScript?.parentNode) {
-    firstScript.parentNode.insertBefore(script, firstScript);
-  } else {
-    document.head.appendChild(script);
-  }
-};
-
 const TRACKED_CLARITY_PATH = "/v1weblanding";
 
 const TrackingScripts = () => {
@@ -121,6 +82,7 @@ const TrackingScripts = () => {
   const googleAdsId = import.meta.env.VITE_GOOGLE_ADS_ID;
   const clarityId = import.meta.env.VITE_MICROSOFT_CLARITY_ID;
   const location = useLocation();
+  const clarityInitialized = useRef(false);
 
   useEffect(() => {
     if (metaPixelId) {
@@ -136,8 +98,13 @@ const TrackingScripts = () => {
   }, [googleGtagId, googleAdsId]);
 
   useEffect(() => {
-    if (clarityId && location.pathname === TRACKED_CLARITY_PATH) {
-      initMicrosoftClarity(clarityId);
+    if (clarityInitialized.current || !clarityId) {
+      return;
+    }
+
+    if (location.pathname === TRACKED_CLARITY_PATH) {
+      Clarity.init(clarityId);
+      clarityInitialized.current = true;
     }
   }, [clarityId, location.pathname]);
 
