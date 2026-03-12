@@ -74,13 +74,15 @@ const initGoogleTags = (googleIds: string[]) => {
 };
 
 const TRACKED_CLARITY_PATH = "/v1weblanding";
+const DEFAULT_CLARITY_PROJECT_ID = "vulv83s7kv";
 
 const TrackingScripts = () => {
   const envMetaPixelId = import.meta.env.VITE_META_PIXEL_ID;
   const metaPixelId = envMetaPixelId || DEFAULT_META_PIXEL_ID;
   const googleGtagId = import.meta.env.VITE_GOOGLE_GTAG_ID;
   const googleAdsId = import.meta.env.VITE_GOOGLE_ADS_ID;
-  const clarityId = import.meta.env.VITE_MICROSOFT_CLARITY_ID;
+  const clarityEnvId = import.meta.env.VITE_MICROSOFT_CLARITY_ID;
+  const clarityId = clarityEnvId || DEFAULT_CLARITY_PROJECT_ID;
   const location = useLocation();
   const clarityInitialized = useRef(false);
 

@@ -85,3 +85,4 @@ VITE_MICROSOFT_CLARITY_ID=clarity_project_id
 
 Only the values you provide will be injected, so you can roll out one network at a time without touching the code.
 Microsoft Clarity is wired through the `@microsoft/clarity` package and only calls `Clarity.init()` when a visitor reaches `/v1weblanding`, so no script runs on other routes unless you change that path in `src/components/TrackingScripts.tsx`.
+If you don’t explicitly set `VITE_MICROSOFT_CLARITY_ID`, the code defaults to the project `vulv83s7kv`, which is already configured for this landing page.
