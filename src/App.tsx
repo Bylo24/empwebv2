@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import IndexRedesign from "./pages/IndexRedesign";
 import NotFound from "./pages/NotFound";
 import WorkWithUsPage from "./components/WorkWithUs";
 import V1WebLanding from "./pages/V1WebLanding";
@@ -24,6 +25,7 @@ const App = () => (
           <TrackingScripts />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/redesign" element={<IndexRedesign />} />
             <Route path="/v1weblanding" element={<V1WebLanding />} />
             <Route path="/work-with-us" element={<WorkWithUsPage />} />
             <Route path="/upload" element={<VideoUpload />} />
