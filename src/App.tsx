@@ -24,8 +24,10 @@ const App = () => (
         <BrowserRouter>
           <TrackingScripts />
           <Routes>
-            <Route path="/" element={<Index />} />
+            {/* Redesign is now the default route. Original site preserved at /old. */}
+            <Route path="/" element={<IndexRedesign />} />
             <Route path="/redesign" element={<IndexRedesign />} />
+            <Route path="/old" element={<Index />} />
             <Route path="/v1weblanding" element={<V1WebLanding />} />
             <Route path="/work-with-us" element={<WorkWithUsPage />} />
             <Route path="/upload" element={<VideoUpload />} />
