@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useSeo } from "@/hooks/use-seo";
 
 type FieldOption = {
   label: string;
@@ -216,6 +217,13 @@ const selectStyle = {
 };
 
 const WorkWithUs = () => {
+  useSeo({
+    title: "Apply to Work With Us | Emporom Media",
+    description:
+      "Apply to work with Emporom Media. Tell us about your business and we'll get back to you about running your Google Ads, Meta Ads, landing pages and SEO.",
+    path: "/work-with-us",
+  });
+
   const [stepIndex, setStepIndex] = useState(0);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [submitted, setSubmitted] = useState(false);

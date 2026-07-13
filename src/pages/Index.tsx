@@ -8,8 +8,16 @@ import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { useSeo } from "@/hooks/use-seo";
 
 const Index = () => {
+  useSeo({
+    title: "Emporom Media | Wellington Digital Marketing Agency — Google & Meta Ads",
+    description:
+      "Marketing off your plate, handled properly. Emporom Media runs Google Ads, Meta Ads, landing pages and SEO for Wellington businesses. Month-to-month, one team.",
+    path: "/",
+  });
+
   return (
     <div className="min-h-screen">
       <Navbar />
