@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { ShineBorder } from "@/components/ui/shine-border";
+import { Reveal } from "@/components/Premium";
 
 type Plan = {
   name: string;
@@ -153,6 +155,45 @@ const SEGMENTS: Segment[] = [
   },
 ];
 
+function PlanCard({ p }: { p: Plan }) {
+  return (
+    <div
+      className={`flex h-full flex-col rounded-3xl p-8 ${
+        p.featured ? "bg-orange text-white" : "bg-secondary/30 border border-border"
+      }`}
+    >
+      <div className="flex items-center justify-between">
+        <p className={`text-xs uppercase tracking-[0.3em] font-semibold ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>
+          {p.name}
+        </p>
+        {p.featured && (
+          <span className="rounded-full bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]">Most popular</span>
+        )}
+      </div>
+
+      <p className="mt-5 text-4xl font-bold tracking-tight">
+        {p.price}
+        <span className={`text-base font-semibold ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>{p.per}</span>
+      </p>
+
+      <p className={`mt-4 text-sm leading-relaxed ${p.featured ? "text-white/80" : "text-muted-foreground"}`}>{p.desc}</p>
+
+      <ul className="mt-6 flex-1 space-y-3">
+        {p.items.map((it) => (
+          <li key={it} className={`flex items-start gap-2.5 text-sm font-medium ${p.featured ? "text-white/90" : "text-foreground"}`}>
+            <Check className={`mt-0.5 h-4 w-4 shrink-0 ${p.featured ? "text-white" : "text-foreground"}`} />
+            {it}
+          </li>
+        ))}
+      </ul>
+
+      <Button asChild variant={p.featured ? "secondary" : "default"} size="lg" className="mt-8 w-full">
+        <Link to="/work-with-us">Apply to Work With Us</Link>
+      </Button>
+    </div>
+  );
+}
+
 const Pricing = () => {
   const [segmentKey, setSegmentKey] = useState(SEGMENTS[0].key);
   const active = SEGMENTS.find((s) => s.key === segmentKey) ?? SEGMENTS[0];
@@ -160,13 +201,7 @@ const Pricing = () => {
   return (
     <section id="pricing" className="section-base bg-background">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="section-heading"
-        >
+        <Reveal className="section-heading">
           <span className="section-badge">Pricing</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
             Retainers that <span className="text-keyword">scale with you.</span>
@@ -174,16 +209,10 @@ const Pricing = () => {
           <p className="text-muted-foreground text-base md:text-lg">
             Monthly, no lock-in beyond the agreed term.
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Segment switcher */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
+        <Reveal delay={0.1} className="flex flex-wrap justify-center gap-3 mb-12">
           {SEGMENTS.map((s) => (
             <button
               key={s.key}
@@ -193,7 +222,7 @@ const Pricing = () => {
               {s.label}
             </button>
           ))}
-        </motion.div>
+        </Reveal>
 
         <motion.div
           key={active.key}
@@ -202,77 +231,15 @@ const Pricing = () => {
           transition={{ duration: 0.35 }}
           className="grid grid-cols-1 gap-6 md:grid-cols-3 items-stretch"
         >
-          {active.plans.map((p) => (
-            <div
-              key={p.name}
-              className={`flex h-full flex-col rounded-3xl p-8 ${
-                p.featured
-                  ? "bg-orange text-white"
-                  : "bg-secondary/30 border border-border"
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <p
-                  className={`text-xs uppercase tracking-[0.3em] font-semibold ${
-                    p.featured ? "text-white/70" : "text-muted-foreground"
-                  }`}
-                >
-                  {p.name}
-                </p>
-                {p.featured && (
-                  <span className="rounded-full bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]">
-                    Most popular
-                  </span>
-                )}
-              </div>
-
-              <p className="mt-5 text-4xl font-bold tracking-tight">
-                {p.price}
-                <span
-                  className={`text-base font-semibold ${
-                    p.featured ? "text-white/70" : "text-muted-foreground"
-                  }`}
-                >
-                  {p.per}
-                </span>
-              </p>
-
-              <p
-                className={`mt-4 text-sm leading-relaxed ${
-                  p.featured ? "text-white/80" : "text-muted-foreground"
-                }`}
-              >
-                {p.desc}
-              </p>
-
-              <ul className="mt-6 flex-1 space-y-3">
-                {p.items.map((it) => (
-                  <li
-                    key={it}
-                    className={`flex items-start gap-2.5 text-sm font-medium ${
-                      p.featured ? "text-white/90" : "text-foreground"
-                    }`}
-                  >
-                    <Check
-                      className={`mt-0.5 h-4 w-4 shrink-0 ${
-                        p.featured ? "text-white" : "text-foreground"
-                      }`}
-                    />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                asChild
-                variant={p.featured ? "secondary" : "default"}
-                size="lg"
-                className="mt-8 w-full"
-              >
-                <Link to="/work-with-us">Apply to Work With Us</Link>
-              </Button>
-            </div>
-          ))}
+          {active.plans.map((p) =>
+            p.featured ? (
+              <ShineBorder key={p.name} className="scale-[1.03] shadow-[0_40px_80px_-30px_rgba(255,91,5,0.35)]">
+                <PlanCard p={p} />
+              </ShineBorder>
+            ) : (
+              <PlanCard key={p.name} p={p} />
+            )
+          )}
         </motion.div>
       </div>
     </section>

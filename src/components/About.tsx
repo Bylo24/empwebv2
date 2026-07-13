@@ -1,7 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { Spark } from "@/components/Spark";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
+import { Reveal, Words } from "@/components/Premium";
 
 const PROPS = [
   {
@@ -26,21 +24,6 @@ const PROPS = [
   },
 ];
 
-function Reveal({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 const About = () => {
   return (
     <section id="about" className="border-t border-charcoal/10 bg-paper py-28">
@@ -48,7 +31,7 @@ const About = () => {
         <div>
           <Reveal>
             <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
-              Direct access, <span>not an account manager.</span>
+              <Words text="Direct access," tail={<span>not an account manager.</span>} />
             </h2>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-charcoal/58">
               Emporom Media is a Wellington-based digital marketing agency. No

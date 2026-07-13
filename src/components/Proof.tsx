@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useInView, useReducedMotion } from "framer-motion";
 import { Spark } from "@/components/Spark";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
+import { Reveal, Words, EASE } from "@/components/Premium";
 
 /* trust marquee — industries served */
 const INDUSTRIES = ["E-commerce", "Home Services", "Real Estate", "Health & Wellness", "Trades", "Professional Services"];
@@ -108,15 +107,11 @@ export function Results() {
       <div className="grain pointer-events-none absolute inset-0 opacity-[0.025]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-70px" }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="max-w-2xl text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-cloud"
-        >
-          Pretty ads are easy. <span className="fade-word">Results are the job.</span>
-        </motion.h2>
+        <Reveal>
+          <h2 className="font-display max-w-2xl text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-cloud">
+            <Words text="Pretty ads are easy." tail={<span className="fade-word">Results are the job.</span>} />
+          </h2>
+        </Reveal>
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <Stat to={4.2} decimals={1} suffix="×" label="Average campaign ROAS" delay={0.05} />
           <StaticStat value="$800" label="Entry retainer / mo" delay={0.12} />
@@ -137,14 +132,9 @@ export function Audit() {
   return (
     <section id="audit" className="border-t border-charcoal/10 bg-paper py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-70px" }}
-          transition={{ duration: 0.7, ease: EASE }}
-        >
-          <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
-            Hand it over. Watch it climb.
+        <Reveal>
+          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
+            <Words text="Hand it over." tail={<span>Watch it climb.</span>} />
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/58">
             Most accounts we inherit are a mess. Half-built campaigns, budget
@@ -164,16 +154,11 @@ export function Audit() {
               </button>
             ))}
           </div>
-        </motion.div>
+        </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-70px" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-        >
+        <Reveal delay={0.1}>
           <div className="rounded-[1.5rem] border border-charcoal/10 bg-charcoal/[0.02] p-1.5 shadow-[var(--shadow-lift)]">
-            <div className="rounded-[calc(1.5rem-6px)] overflow-hidden">
+            <div className="sheen surface-card-lift rounded-[calc(1.5rem-6px)] overflow-hidden">
               <div className="flex items-center gap-2 px-5 py-3 border-b border-charcoal/10 bg-charcoal/[0.018]">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
@@ -217,7 +202,7 @@ export function Audit() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

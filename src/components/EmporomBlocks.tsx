@@ -1,31 +1,17 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Check, X, ArrowUp, Search, ClipboardList, Zap, RefreshCw } from "lucide-react";
+import { Reveal, Words, EASE } from "@/components/Premium";
 
 const ORANGE = "#FF5B05";
 const ORANGE_2 = "#FF751F";
 const AMBER = "#FFB24A";
 const AQUA = "#1AA6AE";
-const EASE = [0.16, 1, 0.3, 1] as const;
 const SHADOW_STACK =
   "0 0.6px 0.6px -0.5px rgba(16,20,25,0.04), 0 2.3px 2.3px -1px rgba(16,20,25,0.06), 0 10px 16px -1.5px rgba(16,20,25,0.10)";
 const SHADOW_STACK_LIFT =
   "0 1px 1px -0.5px rgba(16,20,25,0.05), 0 5px 8px -1.5px rgba(16,20,25,0.09), 0 22px 34px -4px rgba(16,20,25,0.16)";
 const hed = "font-display font-extrabold tracking-tight";
-
-function Reveal({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 /* ── 0 · CASES — "Real accounts. Real fixes." ── */
 
@@ -261,7 +247,7 @@ export function DashboardBand() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[0.92fr_1.08fr]">
         <div>
           <h2 className={`${hed} display balance text-[clamp(2rem,4.3vw,3.1rem)] leading-[1.02] text-charcoal`}>
-            Your marketing, <span>in one view.</span>
+            <Words text="Your marketing," tail={<span>in one view.</span>} />
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/58">
             Ads, SEO, landing pages and email don't live in five logins run by
@@ -304,7 +290,7 @@ export function ReceiptTable() {
       <div className="mx-auto max-w-4xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className={`${hed} display balance text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.02] text-charcoal`}>
-            What a full-service agency <span>replaces.</span>
+            <Words text="What a full-service agency" tail={<span>replaces.</span>} />
           </h2>
           <p className="mt-4 text-lg text-charcoal/52">
             Every line below is usually its own freelancer or vendor. We run them as one team.
@@ -358,7 +344,7 @@ export function OnboardTimeline() {
       <div className="mx-auto max-w-4xl px-6">
         <Reveal className="max-w-2xl">
           <h2 className={`${hed} display balance text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.02] text-charcoal`}>
-            From first call to <span>handled.</span>
+            <Words text="From first call to" tail={<span>handled.</span>} />
           </h2>
         </Reveal>
 

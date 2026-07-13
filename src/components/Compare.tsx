@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
+import { Reveal, EASE } from "@/components/Premium";
 
 const OLD = [
   "A month-end PDF nobody opens",
@@ -115,21 +114,15 @@ const Compare = () => {
   return (
     <section className="relative bg-paper py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="max-w-2xl"
-        >
-          <h2 className="display balance text-[clamp(2rem,4.2vw,3.1rem)] font-extrabold leading-[1.02] text-charcoal">
+        <Reveal className="max-w-2xl">
+          <h2 className="font-display display balance text-[clamp(2rem,4.2vw,3.1rem)] font-extrabold leading-[1.02] text-charcoal">
             Most agencies hand you a to-do list. We just handle it.
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-charcoal/55">
             Same budget, two very different months. Here's what changes when
             the person running your ads is the one who built them.
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           <Card reduce={reduce} side="Old way" tag="Busywork" dot="#c8483a" heading="The usual agency" items={OLD} delay={0.05} />

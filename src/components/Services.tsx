@@ -1,21 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
-
-function Reveal({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
-    >
-      {children}
-    </motion.div>
-  );
-}
+import { Reveal, Words } from "@/components/Premium";
 
 function MetaVisual() {
   return (
@@ -177,7 +160,7 @@ const Services = () => {
             Services
           </p>
           <h2 className="font-display mt-5 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
-            One partner for the whole <span className="fade-word">growth engine.</span>
+            <Words text="One partner for the whole" tail={<span className="fade-word">growth engine.</span>} />
           </h2>
           <p className="mt-4 text-lg text-charcoal/52">
             Every service runs the same way: built properly, then scaled. Never bolted on and left to drift.
@@ -192,7 +175,7 @@ const Services = () => {
                   c.accent ? "border border-orange/20 bg-orange/[0.04] hover:bg-orange/[0.06]" : "border border-charcoal/[0.06] bg-charcoal/[0.02] hover:border-charcoal/12"
                 } shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] hover:-translate-y-1`}
               >
-                <div className="h-full overflow-hidden rounded-[calc(1.4rem-4px)] bg-white">
+                <div className="sheen h-full overflow-hidden rounded-[calc(1.4rem-4px)] bg-white">
                   <div className={`px-7 pt-6 pb-4 ${c.accent ? "bg-gradient-to-b from-orange/[0.03] to-transparent" : "bg-charcoal/[0.015]"}`}>{c.visual}</div>
                   <div className="border-t border-charcoal/[0.06] p-7">
                     <h3 className="text-xl font-extrabold tracking-tight text-charcoal">{c.name}</h3>

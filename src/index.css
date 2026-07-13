@@ -240,3 +240,19 @@
 
 @keyframes emporom-blink { 50% { opacity: 0.35; } }
 @keyframes emporom-marquee { to { transform: translateX(-50%); } }
+
+@layer components {
+  .surface-card-lift { transition: transform .5s var(--ease-premium, cubic-bezier(0.16,1,0.3,1)), box-shadow .5s var(--ease-premium, cubic-bezier(0.16,1,0.3,1)); }
+  .surface-card-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+  .sheen { position: relative; overflow: hidden; }
+  .sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.35) 48%, transparent 62%);
+    transform: translateX(-120%);
+    transition: transform .9s cubic-bezier(0.16,1,0.3,1);
+  }
+  .sheen:hover::after { transform: translateX(120%); }
+}
