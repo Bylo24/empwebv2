@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logoBlack from "@/assets/emporom-black.svg";
 import { Link } from "react-router-dom";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -40,7 +40,7 @@ const Navbar = () => {
           }`}
         >
           <a href="#" className="flex items-center h-full justify-center" aria-label="Emporom Media home">
-            <img src={logo} alt="Emporom Media" className="h-7 md:h-9 object-contain" />
+            <img src={logoBlack} alt="Emporom Media" className="h-7 md:h-9 object-contain" />
           </a>
 
           <div className="hidden md:flex items-center gap-7">

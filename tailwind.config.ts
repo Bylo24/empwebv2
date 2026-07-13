@@ -14,9 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ["'Hanken Grotesk'", 'system-ui', 'sans-serif'],
-        mono: ["'Space Mono'", "'SFMono-Regular'", 'monospace'],
+        sans: ["'Inter Tight'", 'system-ui', 'sans-serif'],
+        // The draft has no separate display typeface — headings and body
+        // both use Inter Tight, differentiated by weight/size only.
+        display: ["'Inter Tight'", 'system-ui', 'sans-serif'],
+        mono: ["'JetBrains Mono'", "'SFMono-Regular'", 'monospace'],
       },
       transitionTimingFunction: {
         premium: "cubic-bezier(0.16, 1, 0.3, 1)",

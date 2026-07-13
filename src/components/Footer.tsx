@@ -1,7 +1,7 @@
 import { Instagram, Linkedin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logoWhite from "@/assets/emporom-white.svg";
 
 const FOOT = [
   {
@@ -41,7 +41,7 @@ const Footer = () => {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <img src={logo} alt="Emporom Media" className="h-12 brightness-0 invert opacity-90" />
+            <img src={logoWhite} alt="Emporom Media" className="h-12" />
             <p className="mt-5 max-w-xs leading-relaxed text-cloud/45">
               Performance marketing for NZ brands that value the work. Wellington, Aotearoa.
             </p>
