@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Marquee, Results, Audit } from "@/components/Proof";
 import Compare from "@/components/Compare";
-import { ReceiptTable, OnboardTimeline, Cases, Approach } from "@/components/EmporomBlocks";
+import { ReceiptTable, Cases, Approach } from "@/components/EmporomBlocks";
 import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -23,7 +23,6 @@ const Index = () => {
         <Audit />
         <Cases />
         <Approach />
-        <OnboardTimeline />
         <Pricing />
         <FAQ />
         <CTA />

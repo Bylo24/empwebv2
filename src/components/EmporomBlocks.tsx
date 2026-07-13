@@ -338,52 +338,7 @@ const TIMELINE: { icon: React.ReactNode; title: string; when: string; body: stri
   { icon: <RefreshCw size={15} />, title: "Optimise", when: "Ongoing", body: "We keep what's working, kill what isn't, and hand you a plain-English update, not another login to check." },
 ];
 
-export function OnboardTimeline() {
-  return (
-    <section className="border-t border-charcoal/10 bg-paper py-32">
-      <div className="mx-auto max-w-4xl px-6">
-        <Reveal className="max-w-2xl">
-          <h2 className={`${hed} display balance text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.02] text-charcoal`}>
-            <Words text="From first call to" tail={<span>handled.</span>} />
-          </h2>
-        </Reveal>
-
-        <div className="relative mt-14 pl-2">
-          <span className="absolute bottom-6 left-[19px] top-3 w-px" style={{ background: "rgba(36,48,55,0.14)" }} aria-hidden />
-          <div className="space-y-8">
-            {TIMELINE.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.08}>
-                <div className="relative flex items-start gap-5">
-                  <span className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-charcoal" style={{ border: "1px solid rgba(36,48,55,0.14)", boxShadow: SHADOW_STACK }}>
-                    <span style={i === TIMELINE.length - 1 ? { color: ORANGE } : undefined}>{s.icon}</span>
-                  </span>
-                  <div className="flex flex-1 flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-1">
-                    <div className="max-w-lg">
-                      <h3 className={`${hed} text-lg text-charcoal`}>{s.title}</h3>
-                      <p className="mt-1.5 text-[0.95rem] leading-relaxed text-charcoal/58">{s.body}</p>
-                    </div>
-                    <span className="rounded-full border px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.16em]" style={{ borderColor: `${ORANGE}2a`, color: ORANGE }}>
-                      {s.when}
-                    </span>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── 4 · APPROACH — process steps + credentials card ── */
-
-const STEPS = [
-  { n: "1", name: "Audit & takeover", desc: "Before anything runs, we take the account apart and fix what's broken. Most of the wasted spend hides here." },
-  { n: "2", name: "Strategy & offer", desc: "Channel mix, budget and the offer itself, built around your margins rather than vanity metrics." },
-  { n: "3", name: "Build & launch", desc: "Creative, landing pages and campaigns shipped fast, tested properly." },
-  { n: "4", name: "Scale & update", desc: "Double down on what works, kill what doesn't, and keep you posted in plain English. Never homework." },
-];
+/* ── 4 · APPROACH — process timeline + credentials card ── */
 
 const CREDS = [
   { label: "One team owns your account", sub: "No outsourced hand-offs, no runaround" },
@@ -399,21 +354,32 @@ export function Approach() {
         <div>
           <Reveal>
             <h2 className={`${hed} text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-[-0.03em] text-balance text-charcoal`}>
-              A clear process, nothing hidden.
+              <Words text="From first call to handled." tail={<span className="fade-word">Nothing hidden.</span>} />
             </h2>
           </Reveal>
-          <div className="mt-10 space-y-1">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.n} delay={i * 0.07}>
-                <div className="group flex gap-6 rounded-xl p-5 transition-all duration-400 ease-premium hover:bg-white hover:shadow-[var(--shadow-soft)]">
-                  <span className="mt-0.5 font-mono text-sm font-bold text-orange shrink-0">{s.n} /</span>
-                  <div>
-                    <h3 className="text-lg font-extrabold tracking-tight text-charcoal">{s.name}</h3>
-                    <p className="mt-1 leading-relaxed text-charcoal/58">{s.desc}</p>
+
+          <div className="relative mt-12 pl-2">
+            <span className="absolute bottom-6 left-[19px] top-3 w-px" style={{ background: "rgba(36,48,55,0.14)" }} aria-hidden />
+            <div className="space-y-7">
+              {TIMELINE.map((s, i) => (
+                <Reveal key={s.title} delay={i * 0.08}>
+                  <div className="relative flex items-start gap-5">
+                    <span className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-charcoal" style={{ border: "1px solid rgba(36,48,55,0.14)", boxShadow: SHADOW_STACK }}>
+                      <span style={i === TIMELINE.length - 1 ? { color: ORANGE } : undefined}>{s.icon}</span>
+                    </span>
+                    <div className="flex flex-1 flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-1">
+                      <div className="max-w-lg">
+                        <h3 className={`${hed} text-lg text-charcoal`}>{s.title}</h3>
+                        <p className="mt-1.5 text-[0.95rem] leading-relaxed text-charcoal/58">{s.body}</p>
+                      </div>
+                      <span className="rounded-full border px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.16em]" style={{ borderColor: `${ORANGE}2a`, color: ORANGE }}>
+                        {s.when}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
 
