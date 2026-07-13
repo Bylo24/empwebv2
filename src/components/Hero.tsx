@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import RotatingWord from "@/components/RotatingWord";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -65,17 +64,11 @@ const Hero = () => {
           initial={reduce ? false : { opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
-          className="mt-7 w-full font-display display balance text-[clamp(2.3rem,9vw,5.6rem)] font-extrabold leading-[0.97] text-white flex flex-col items-center gap-1"
+          className="mt-7 w-full font-display display balance text-[clamp(2.3rem,9vw,5.6rem)] font-extrabold leading-[0.97] text-white"
         >
-          <span>We help ambitious</span>
-          <span>
-            brands achieve{" "}
-            <RotatingWord
-              className="!text-white bg-orange/90 rounded-[0.45rem] px-3"
-              words={["growth", "traction", "momentum", "scale", "results"]}
-            />
-            .
-          </span>
+          Marketing off your plate.
+          <br />
+          <span className="fade-word">Handled properly.</span>
         </motion.h1>
 
         <motion.p
@@ -84,8 +77,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.22, ease: EASE }}
           className="mt-7 max-w-[30rem] mx-auto px-2 text-lg leading-[1.6] text-cloud/72 sm:px-0 sm:text-xl sm:leading-[1.65]"
         >
-          Work with a team that lands real results through bold creativity
-          and measurable strategy.
+          We run your Meta &amp; Google Ads, build the landing pages, and
+          handle the SEO. One team, so you can get back to the business.
         </motion.p>
 
         <motion.div
