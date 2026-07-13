@@ -106,10 +106,10 @@ const Hero = () => {
             </span>
           </Link>
           <a
-            href="#services"
+            href="#work"
             className="focus-ring inline-flex items-center gap-2 rounded-full border border-cloud/20 bg-cloud/[0.05] px-6 py-3.5 text-[0.95rem] font-semibold text-cloud backdrop-blur-sm transition-all duration-400 ease-premium hover:border-cloud/40 hover:bg-cloud/10"
           >
-            Explore Services
+            See the Work
           </a>
         </motion.div>
 

@@ -235,6 +235,7 @@
   .marquee-track { animation: emporom-marquee 28s linear infinite; }
   .balance { text-wrap: balance; }
   .display { letter-spacing: -0.035em; line-height: 0.98; }
+  .dotgrid { background-image: radial-gradient(var(--hair) 1px, transparent 1px); background-size: 22px 22px; }
 }
 
 @keyframes emporom-blink { 50% { opacity: 0.35; } }

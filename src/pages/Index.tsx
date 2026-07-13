@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Marquee, Results, Audit } from "@/components/Proof";
 import Compare from "@/components/Compare";
+import { DashboardBand, ReceiptTable, OnboardTimeline, Cases } from "@/components/EmporomBlocks";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import AboutUs from "@/components/AboutUs";
@@ -20,11 +21,15 @@ const Index = () => {
         <Marquee />
         <Results />
         <Compare />
+        <ReceiptTable />
         <Services />
+        <DashboardBand />
         <PersonalBrandVisual />
-        <Process />
         <AboutUs />
         <Audit />
+        <Cases />
+        <Process />
+        <OnboardTimeline />
         <Pricing />
         <FAQ />
         <CTA />
