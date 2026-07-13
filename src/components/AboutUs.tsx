@@ -57,12 +57,11 @@ const AboutUs = () => {
               was established by Logan, with Sam joining in late 2025 to help scale our vision.
             </p>
             <p className="text-lg md:text-xl leading-relaxed">
-              We operate as a highly <span className="text-keyword">hands-on</span>,{" "}
-              <span className="text-keyword">founder-led</span> team, managing every aspect of our work
-              personally to maintain exceptional quality and consistency. By keeping
-              our client roster intentionally small and never outsourcing, we offer something
-              increasingly rare: <span className="text-keyword">direct access</span> to the people actually
-              running your campaigns.
+              We operate as a highly <span className="text-keyword">hands-on</span> team,
+              staying close to every account to maintain exceptional quality and consistency.
+              No outsourcing, no hand-offs to a junior you've never spoken to — we offer
+              something increasingly rare: <span className="text-keyword">direct access</span> to
+              the people actually running your campaigns.
             </p>
             <p className="text-lg md:text-xl leading-relaxed">
               Our approach is built on <span className="text-keyword">clear strategy</span>, disciplined execution,

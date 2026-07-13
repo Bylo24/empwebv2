@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import AboutUs from "@/components/AboutUs";
 import PersonalBrandVisual from "@/components/PersonalBrandVisual";
+import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ const Index = () => {
         <PersonalBrandVisual />
         <Process />
         <AboutUs />
+        <Pricing />
         <FAQ />
         <CTA />
       </main>

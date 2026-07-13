@@ -30,6 +30,9 @@ const Navbar = () => {
           <a href="#about" className="nav-link text-sm font-medium">
             About Us
           </a>
+          <a href="#pricing" className="nav-link text-sm font-medium">
+            Pricing
+          </a>
           <a href="#faq" className="nav-link text-sm font-medium">
             FAQ
           </a>
