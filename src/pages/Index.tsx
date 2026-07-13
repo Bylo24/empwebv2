@@ -2,11 +2,9 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Marquee, Results, Audit } from "@/components/Proof";
 import Compare from "@/components/Compare";
-import { DashboardBand, ReceiptTable, OnboardTimeline, Cases } from "@/components/EmporomBlocks";
+import { DashboardBand, ReceiptTable, OnboardTimeline, Cases, Approach } from "@/components/EmporomBlocks";
 import Services from "@/components/Services";
-import Process from "@/components/Process";
-import AboutUs from "@/components/AboutUs";
-import PersonalBrandVisual from "@/components/PersonalBrandVisual";
+import About from "@/components/About";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
@@ -24,11 +22,10 @@ const Index = () => {
         <ReceiptTable />
         <Services />
         <DashboardBand />
-        <PersonalBrandVisual />
-        <AboutUs />
         <Audit />
+        <About />
         <Cases />
-        <Process />
+        <Approach />
         <OnboardTimeline />
         <Pricing />
         <FAQ />

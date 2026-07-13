@@ -1,174 +1,208 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Megaphone, Globe, Palette } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 
-const services = [
-  {
-    id: "digital-marketing",
-    icon: Megaphone,
-    title: "Digital Marketing",
-    headline: "Digital Marketing",
-    tagline:
-      "Cast a brighter signal across paid, owned, and earned channels while feeding a conversion-focused playbook.",
-    description:
-      "Let's face it, the internet is a noisy place. Our Digital Marketing services are about commanding attention and turning engagement into predictable revenue, whether that's Google, Instagram, or something in between.",
-    focusAreas: ["Performance media", "Attribution clarity", "Audience orchestration"],
-    features: [
-      "SEO (Search Engine Optimization)",
-      "PPC Advertising",
-      "Social Media Marketing",
-      "Email Marketing",
-      "Content Marketing",
-    ],
-    outcome: "You get an always-on pipeline, transparent reporting, and creative concepts that can be deployed rapidly.",
-  },
-  {
-    id: "web-design",
-    icon: Globe,
-    title: "Web Design and Development",
-    headline: "Web Design & Development",
-    tagline:
-      "A website that feels both meticulously crafted and ruthlessly performance-driven, built for the buyer journey.",
-    description:
-      "Your website is like your digital handshake. We craft experiences that feel premium, yet guide visitors toward measurable action with intentional UX, purposeful copy, and strategic launches.",
-    focusAreas: ["Conversion-first UX", "CMS sustainability", "Page speed"],
-    features: [
-      "UI / UX Design",
-      "Custom Website Design",
-      "E-Commerce Development",
-      "Content Management Systems (CMS)",
-      "Website Maintenance and Support",
-    ],
-    outcome: "The end product feels unmistakably yours but is optimized for speed, accessibility, and scale.",
-  },
-  {
-    id: "branding",
-    icon: Palette,
-    title: "Branding & Creative Services",
-    headline: "Branding & Creative Services",
-    tagline:
-      "More than a logo—narratives, systems, and seamless creative that keep your brand consistent across every touchpoint.",
-    description:
-      "Your brand is your voice and promise. We translate that into visual language, tone, and assets that feel bold, refined, and unmistakably different.",
-    focusAreas: ["Narrative clarity", "Visual consistency", "Creative systems"],
-    features: [
-      "Logo Design",
-      "Brand Strategy & Positioning",
-      "Visual Identity Design",
-      "Brand Guidelines",
-      "Social media graphics",
-    ],
-    outcome: "You leave with a toolkit that lets your brand stay cohesive across every campaign, platform, and partner.",
-  },
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+function Reveal({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      className={className}
+      initial={reduce ? false : { opacity: 0, y: 26 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.8, delay, ease: EASE }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function MetaVisual() {
+  return (
+    <div className="flex h-[110px] items-center justify-center gap-5 py-2">
+      <div className="relative h-[98px] w-[55px] shrink-0 overflow-hidden rounded-lg border border-orange/30 bg-gradient-to-b from-orange/[0.16] via-orange/[0.06] to-transparent shadow-[0_6px_18px_-6px_rgba(255,91,5,0.35)] transition-transform duration-500 ease-premium group-hover:scale-105">
+        <div className="absolute inset-x-1 top-1 flex gap-0.5">
+          <span className="h-0.5 flex-1 rounded-full bg-orange" />
+          <span className="h-0.5 flex-1 rounded-full bg-orange/45" />
+          <span className="h-0.5 flex-1 rounded-full bg-charcoal/15" />
+        </div>
+        <div className="absolute left-1.5 top-3 flex items-center gap-1">
+          <span className="h-2 w-2 rounded-full border border-orange/50 bg-orange/25" />
+          <span className="h-0.5 w-5 rounded-full bg-charcoal/20" />
+        </div>
+        <span className="absolute inset-0 grid place-items-center">
+          <span className="grid h-6 w-6 place-items-center rounded-full bg-orange text-[8px] text-white shadow-[0_4px_14px_-2px_rgba(255,91,5,0.5)]">▶</span>
+        </span>
+        <div className="absolute inset-x-1.5 bottom-1.5 space-y-1">
+          <span className="block h-0.5 w-4/5 rounded-full bg-charcoal/22" />
+          <span className="block h-0.5 w-3/5 rounded-full bg-charcoal/14" />
+        </div>
+      </div>
+      <div className="flex flex-col items-start gap-1.5">
+        {[
+          { label: "Story · A", live: false },
+          { label: "Reel · B", live: true },
+          { label: "Hook · C", live: false },
+        ].map((c) => (
+          <span
+            key={c.label}
+            className={`whitespace-nowrap rounded-full border px-2.5 py-1 font-mono text-[0.56rem] font-bold transition-all duration-300 ${
+              c.live ? "border-orange/35 bg-orange/[0.08] text-orange shadow-[0_2px_8px_-2px_rgba(255,91,5,0.2)]" : "border-charcoal/10 bg-charcoal/[0.02] text-charcoal/45"
+            }`}
+          >
+            {c.label}
+            {c.live && <span className="ml-1.5 text-[0.5rem] uppercase">live</span>}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function GoogleVisual() {
+  const bars = [30, 45, 38, 58, 50, 72, 66, 85, 78, 96];
+  return (
+    <div className="space-y-4 py-2">
+      <div className="flex items-center gap-3 rounded-full border border-charcoal/10 bg-white px-4 py-2.5 shadow-[0_2px_8px_rgba(36,48,55,.07)]">
+        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 shrink-0 fill-none stroke-charcoal/38" strokeWidth="2.5" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-4-4" />
+        </svg>
+        <span className="text-xs text-charcoal/52">pest control wellington</span>
+        <span className="ml-auto shrink-0 rounded border border-orange/35 px-1.5 py-0.5 font-mono text-[0.52rem] uppercase tracking-wide text-orange">Sponsored</span>
+      </div>
+      <div className="flex h-20 items-end gap-1.5 px-1">
+        {bars.map((h, i) => (
+          <div key={i} style={{ height: `${h}%` }} className={`flex-1 rounded-t transition-all duration-700 ${i > 5 ? "bg-orange shadow-[0_0_6px_rgba(255,91,5,0.22)]" : "bg-charcoal/10"}`} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SeoVisual() {
+  return (
+    <div className="space-y-2 py-2">
+      {[
+        { rank: "1", name: "yourbrand.co.nz", you: true },
+        { rank: "2", name: "competitor-a.com", you: false },
+        { rank: "3", name: "competitor-b.nz", you: false },
+      ].map((r) => (
+        <div
+          key={r.rank}
+          className={`flex items-center gap-3 rounded-lg border px-3.5 py-2.5 text-xs transition-all duration-300 ${
+            r.you ? "border-orange/35 bg-gradient-to-r from-orange/[0.07] to-transparent font-bold text-charcoal shadow-[0_2px_8px_-2px_rgba(255,91,5,0.12)]" : "border-charcoal/10 bg-charcoal/[0.02] text-charcoal/40"
+          }`}
+        >
+          <span className="font-mono shrink-0">{r.rank}.</span>
+          {r.name}
+          {r.you && <span className="ml-auto font-mono text-[0.58rem] text-orange shrink-0">▲ you</span>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CroVisual() {
+  return (
+    <div className="grid grid-cols-2 gap-3 py-2">
+      {[
+        { v: "A", rate: "2.1%", win: false },
+        { v: "B", rate: "4.7%", win: true },
+      ].map((t) => (
+        <div
+          key={t.v}
+          className={`rounded-xl border p-4 text-center transition-all duration-300 ${
+            t.win ? "border-orange/30 bg-gradient-to-b from-orange/[0.08] to-transparent shadow-[0_4px_12px_-4px_rgba(255,91,5,0.18)]" : "border-charcoal/10 bg-charcoal/[0.02] opacity-50"
+          }`}
+        >
+          <p className="eyebrow text-charcoal/38">Variant {t.v}</p>
+          <p className="mt-1.5 text-2xl font-extrabold text-charcoal">{t.rate}</p>
+          {t.win && <p className="mt-0.5 font-mono text-[0.58rem] text-orange">winner</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function EmailVisual() {
+  return (
+    <div className="space-y-2 py-2">
+      {[
+        { name: "Welcome flow", delay: "0ms" },
+        { name: "Abandoned cart", delay: "2h" },
+        { name: "Win-back", delay: "7d" },
+      ].map((f, i) => (
+        <div key={f.name} className="flex items-center gap-3 rounded-lg border border-charcoal/10 bg-charcoal/[0.025] px-3.5 py-2.5 transition-all duration-300 hover:border-orange/25" style={{ marginLeft: i * 12 }}>
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange/60" />
+          <span className="text-xs font-medium text-charcoal/72">{f.name}</span>
+          <span className="ml-auto font-mono text-[0.56rem] text-aqua-3">auto · {f.delay}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function SocialVisual() {
+  const tags = ["Reels", "TikTok", "Shorts", "Stories", "Carousels", "UGC", "Hooks", "Cutdowns"];
+  return (
+    <div className="overflow-hidden py-3 [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+      <div className="marquee-track flex w-max gap-3">
+        {[...tags, ...tags].map((t, i) => (
+          <span key={i} className="whitespace-nowrap rounded-full border border-charcoal/10 bg-charcoal/[0.03] px-4 py-1.5 text-xs font-semibold text-charcoal/60">
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const CELLS = [
+  { span: "lg:col-span-4", visual: <MetaVisual />, name: "Meta Ads", desc: "Story & Reel creative, audience testing and offers that move, built around your margins instead of vanity reach.", accent: false },
+  { span: "lg:col-span-8", visual: <GoogleVisual />, name: "Google Ads", desc: "Search and Performance Max, built and managed end to end. We rebuild the account structure first, because that's where most of the wasted spend hides.", accent: true },
+  { span: "lg:col-span-4", visual: <SeoVisual />, name: "SEO", desc: "Technical fixes, content and local search that compounds so you're not renting every click forever.", accent: false },
+  { span: "lg:col-span-4", visual: <CroVisual />, name: "Landing pages & CRO", desc: "Fast, focused pages built to convert the traffic you're paying for. Tested, not guessed.", accent: false },
+  { span: "lg:col-span-4", visual: <EmailVisual />, name: "Email & lifecycle", desc: "Welcome, abandoned-cart and win-back flows that turn one-time buyers into repeat revenue while you sleep.", accent: false },
+  { span: "lg:col-span-12", visual: <SocialVisual />, name: "Social & content", desc: "Short-form video and content systems that feed the funnel and keep your brand in front of the right people.", accent: false },
 ];
 
 const Services = () => {
-  const [activeService, setActiveService] = useState(services[0].id);
-  const currentService = services.find((s) => s.id === activeService)!;
-  const CurrentIcon = currentService.icon;
-
   return (
-    <section id="services" className="section-base">
-      <div className="max-w-6xl mx-auto">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="section-heading"
-        >
-          <span className="section-badge">✦ Our services</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
-            <span className="text-keyword">Services</span> designed to help your brand shine brighter.
+    <section id="services" className="border-t border-charcoal/10 bg-white py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow flex items-center justify-center gap-2.5 text-charcoal/45">
+            <span className="blink inline-block h-1.5 w-1.5 rounded-full bg-orange shadow-[0_0_8px_#ff5b05]" />
+            Services
+          </p>
+          <h2 className="font-display mt-5 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
+            One partner for the whole <span className="fade-word">growth engine.</span>
           </h2>
-        </motion.div>
+          <p className="mt-4 text-lg text-charcoal/52">
+            Every service runs the same way: built properly, then scaled. Never bolted on and left to drift.
+          </p>
+        </Reveal>
 
-        {/* Service tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {services.map((service) => (
-            <button
-              key={service.id}
-              onClick={() => setActiveService(service.id)}
-              className={`service-tab ${activeService === service.id ? "service-tab-active" : ""}`}
-            >
-              {service.title}
-            </button>
+        <div className="mt-16 grid grid-cols-12 gap-4">
+          {CELLS.map((c, i) => (
+            <Reveal key={c.name} delay={(i % 3) * 0.07} className={`col-span-12 ${c.span}`}>
+              <div
+                className={`group h-full rounded-[1.4rem] p-1 transition-all duration-500 ease-premium ${
+                  c.accent ? "border border-orange/20 bg-orange/[0.04] hover:bg-orange/[0.06]" : "border border-charcoal/[0.06] bg-charcoal/[0.02] hover:border-charcoal/12"
+                } shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] hover:-translate-y-1`}
+              >
+                <div className="h-full overflow-hidden rounded-[calc(1.4rem-4px)] bg-white">
+                  <div className={`px-7 pt-6 pb-4 ${c.accent ? "bg-gradient-to-b from-orange/[0.03] to-transparent" : "bg-charcoal/[0.015]"}`}>{c.visual}</div>
+                  <div className="border-t border-charcoal/[0.06] p-7">
+                    <h3 className="text-xl font-extrabold tracking-tight text-charcoal">{c.name}</h3>
+                    <p className="mt-2 leading-relaxed text-charcoal/55">{c.desc}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           ))}
-        </motion.div>
-
-        {/* Service content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeService}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-secondary/30 rounded-3xl p-8 md:p-12"
-          >
-            <div className="grid md:grid-cols-[1.1fr,0.9fr] gap-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                  <CurrentIcon className="h-4 w-4" />
-                  <span>Focus</span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
-                  {currentService.headline}
-                </h3>
-                <p className="text-lg font-semibold">{currentService.tagline}</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {currentService.description}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {currentService.focusAreas.map((focus) => (
-                    <span
-                      key={focus}
-                      className="rounded-2xl border border-border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
-                    >
-                      {focus}
-                    </span>
-                  ))}
-                </div>
-                <div className="rounded-2xl border border-border bg-background p-4 text-sm font-medium text-muted-foreground">
-                  {currentService.outcome}
-                </div>
-              </div>
-              <div className="space-y-3">
-                {currentService.features.map((feature) => (
-                  <div
-                    key={feature}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-background"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-foreground" />
-                    <span className="text-sm font-medium">{feature}</span>
-                  </div>
-                ))}
-                {currentService.id === "web-design" && (
-                  <div className="mt-6 rounded-2xl border border-accent/30 bg-accent/5 p-5 space-y-3">
-                    <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
-                      Free Website Demo
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Want a free website demo? We’ll build a live version for your business so you can see exactly how it could look and perform—no commitment.
-                    </p>
-                    <Button asChild variant="outline" size="sm">
-                      <Link to="/v1weblanding">I want a free demo</Link>
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        </div>
       </div>
     </section>
   );

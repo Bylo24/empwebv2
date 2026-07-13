@@ -1,89 +1,94 @@
-import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-const faqs = [
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const FAQS = [
   {
-    question: "What services do you offer?",
-    answer:
-      "We're a one-stop-shop for all things digital! From crafting stunning websites to skyrocketing your SEO rankings, managing your social media, and building unforgettable brands, we do it all.",
+    q: "How fast will I see results?",
+    a: "Quick wins in week one: cleaned-up campaigns and sharper creative live. Meaningful results usually take 4-6 weeks. Anyone promising faster is guessing.",
   },
   {
-    question: "Do you work with small businesses or just big brands?",
-    answer:
-      "Size doesn't matter! Whether you're a budding startup or an industry giant, we're here to make your vision a reality. Big dreams? Small budget? Let's chat!",
+    q: "What happens in the first week?",
+    a: "We take the account over, fix what's broken, and get everything running properly before we scale a dollar. It's usually the fastest win in the whole account.",
   },
   {
-    question: "Can I customize the packages you offer?",
-    answer:
-      "Absolutely! Think of our packages as a base pizza—you can add or swap toppings (services) to create your perfect slice of digital success.",
+    q: "Am I locked into a long contract?",
+    a: "No. Retainers run monthly with an agreed initial term, and you keep ownership of every account, pixel and page we build.",
   },
   {
-    question: "How do you measure the success of a marketing campaign?",
-    answer:
-      "Numbers don't lie, and neither do we! We track everything from website traffic to social media engagement and conversions. You'll get regular reports, so you're always in the know.",
-  },
-  {
-    question: "What if I don't like the designs or strategies?",
-    answer:
-      "Honesty hour—we want you to love what we create. If you're not thrilled, we'll go back to the drawing board and tweak until it's perfect. Your happiness is our success.",
-  },
-  {
-    question: "How do I get started?",
-    answer:
-      "Hit 'Apply to Work With Us' at the top, tell us about your goals through the short intake, and we'll reach out for a chat. From there we lock in the best next steps together.",
+    q: "What's included when you take over an account?",
+    a: "A full walkthrough of your ad account: wasted spend, sloppy campaign structure, audience overlap and tired creative. You get a prioritised fix list before anything scales.",
   },
 ];
 
 const FAQ = () => {
+  const [open, setOpen] = useState<number | null>(0);
+  const reduce = useReducedMotion();
+
   return (
-    <section id="faq" className="section-base">
-      <div className="max-w-3xl mx-auto">
-        {/* Section header */}
+    <section id="faq" className="border-t border-charcoal/10 bg-paper py-28">
+      <div className="mx-auto max-w-3xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="section-heading section-heading--narrow"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="text-center"
         >
-          <span className="section-badge">Frequently Asked Questions</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
-            <span className="text-keyword">Got questions?</span> Here's everything you need to know.
+          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold tracking-[-0.03em] text-charcoal">
+            The honest answers.
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg mt-2">
-            The answers you're probably looking for — all right here.
-          </p>
         </motion.div>
 
-        {/* Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <Accordion type="single" collapsible className="faq-list">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="faq-item px-0"
+        <div className="mt-12 space-y-2">
+          {FAQS.map((f, i) => (
+            <motion.div
+              key={i}
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.045, ease: EASE }}
+            >
+              <div
+                className={`overflow-hidden rounded-xl border transition-all duration-400 ease-premium ${
+                  open === i ? "border-orange/25 bg-white shadow-[var(--shadow-soft)]" : "border-charcoal/10 bg-white hover:border-charcoal/20"
+                }`}
               >
-                <AccordionTrigger className="text-left font-semibold hover:no-underline py-5 text-base">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  className="focus-ring flex w-full items-center justify-between gap-6 px-7 py-5 text-left"
+                  aria-expanded={open === i}
+                >
+                  <span className="text-base font-bold tracking-tight text-charcoal leading-snug">{f.q}</span>
+                  <span
+                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border transition-all duration-400 ease-premium ${
+                      open === i ? "rotate-45 border-orange/30 bg-orange text-white" : "border-charcoal/15 bg-charcoal/[0.03] text-charcoal/50"
+                    }`}
+                  >
+                    <svg viewBox="0 0 12 12" fill="none" className="h-3 w-3" aria-hidden="true">
+                      <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {open === i && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: EASE }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-7 pb-6 leading-relaxed text-charcoal/58">{f.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

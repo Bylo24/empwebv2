@@ -389,3 +389,86 @@ export function OnboardTimeline() {
     </section>
   );
 }
+
+/* ── 4 · APPROACH — process steps + credentials card ── */
+
+const STEPS = [
+  { n: "1", name: "Audit & takeover", desc: "Before anything runs, we take the account apart and fix what's broken. Most of the wasted spend hides here." },
+  { n: "2", name: "Strategy & offer", desc: "Channel mix, budget and the offer itself, built around your margins rather than vanity metrics." },
+  { n: "3", name: "Build & launch", desc: "Creative, landing pages and campaigns shipped fast, tested properly." },
+  { n: "4", name: "Scale & update", desc: "Double down on what works, kill what doesn't, and keep you posted in plain English. Never homework." },
+];
+
+const CREDS = [
+  { label: "One team owns your account", sub: "No outsourced hand-offs, no runaround" },
+  { label: "Month-to-month", sub: "No long lock-ins, we earn the renewal" },
+  { label: "You own everything", sub: "Accounts, pixels and pages, handed over on exit" },
+  { label: "Wellington, Aotearoa", sub: "Local and reachable" },
+];
+
+export function Approach() {
+  return (
+    <section id="process" className="border-t border-charcoal/10 bg-paper py-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[1.15fr_0.85fr]">
+        <div>
+          <Reveal>
+            <h2 className={`${hed} text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-[-0.03em] text-balance text-charcoal`}>
+              A clear process, nothing hidden.
+            </h2>
+          </Reveal>
+          <div className="mt-10 space-y-1">
+            {STEPS.map((s, i) => (
+              <Reveal key={s.n} delay={i * 0.07}>
+                <div className="group flex gap-6 rounded-xl p-5 transition-all duration-400 ease-premium hover:bg-white hover:shadow-[var(--shadow-soft)]">
+                  <span className="mt-0.5 font-mono text-sm font-bold text-orange shrink-0">{s.n} /</span>
+                  <div>
+                    <h3 className="text-lg font-extrabold tracking-tight text-charcoal">{s.name}</h3>
+                    <p className="mt-1 leading-relaxed text-charcoal/58">{s.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <Reveal delay={0.15}>
+          <div className="rounded-[1.6rem] border border-white/8 bg-charcoal/10 p-1.5 shadow-[0_40px_80px_-24px_rgba(36,48,55,0.22)]">
+            <div className="relative isolate overflow-hidden rounded-[calc(1.6rem-6px)] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <img
+                src="/brands/emporom/wave2.jpg"
+                alt="Sweeping light-trail curve over the harbour at dusk"
+                className="absolute inset-0 h-full w-full object-cover -z-10"
+              />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-charcoal/96 via-charcoal/82 to-charcoal/58" />
+              <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-orange/45 to-transparent" />
+              <div className="grain absolute inset-0 -z-10 opacity-[0.025]" />
+
+              <div className="flex items-center gap-2 px-7 pt-6 pb-4 border-b border-white/8">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange shadow-[0_0_8px_#ff5b05]" />
+                <span className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-white/40">How we operate</span>
+              </div>
+
+              <div className="p-7 space-y-5">
+                {CREDS.map((item) => (
+                  <div key={item.label} className="group flex items-start gap-3.5">
+                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-orange/20 text-orange transition-colors duration-300 group-hover:bg-orange group-hover:text-white">
+                      <Check size={10} />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-white leading-snug">{item.label}</p>
+                      <p className="mt-0.5 eyebrow text-white/40">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="px-7 pb-6 pt-2 border-t border-white/8">
+                <p className="font-mono text-[0.56rem] uppercase tracking-[0.18em] text-white/30">Wellington, Aotearoa</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

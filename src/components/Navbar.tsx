@@ -7,11 +7,8 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 const LINKS = [
   { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "About Us", href: "#about" },
   { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Work", href: "#work" },
 ];
 
 const Navbar = () => {
