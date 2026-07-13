@@ -40,7 +40,7 @@ const Process = () => {
           className="section-heading"
         >
           <span className="section-badge">Our Work Process</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             <span className="text-keyword">From idea to impact</span>—our process makes it easy, exciting, and effective!
           </h2>
         </motion.div>

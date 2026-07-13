@@ -97,7 +97,7 @@ const PersonalBrandVisual = () => {
       <div className="max-w-5xl mx-auto text-center">
         <div className="section-heading section-heading--narrow">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Agency visual</p>
-          <h2 className="text-3xl md:text-4xl font-bold">Inside the Work</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold">Inside the Work</h2>
           <p className="text-sm uppercase tracking-[0.2em] font-semibold text-muted-foreground">
             Where Strategy Meets Execution
           </p>

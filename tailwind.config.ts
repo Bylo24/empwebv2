@@ -15,8 +15,22 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ["'Hanken Grotesk'", 'system-ui', 'sans-serif'],
+        mono: ["'Space Mono'", "'SFMono-Regular'", 'monospace'],
+      },
+      transitionTimingFunction: {
+        premium: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
       colors: {
+        ink: "#0e1419",
+        charcoal: "#243037",
+        "charcoal-2": "#1b252b",
+        cloud: "#d3ddde",
+        "cloud-2": "#e6ecec",
+        paper: "#eef2f2",
+        orange: { DEFAULT: "#ff5b05", 2: "#ff751f" },
+        amber: "#ffb24a",
+        aqua: { DEFAULT: "#075056", 2: "#0c7a82", 3: "#1aa6ae" },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

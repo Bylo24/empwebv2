@@ -435,7 +435,7 @@ const WorkWithUs = () => {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
           Work with us
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold mt-3">
+        <h2 className="font-display text-3xl md:text-4xl font-bold mt-3">
           Help us understand your readiness
         </h2>
         <p className="text-lg text-muted-foreground mt-2">

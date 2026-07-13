@@ -168,7 +168,7 @@ const Pricing = () => {
           className="section-heading"
         >
           <span className="section-badge">Pricing</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
             Retainers that <span className="text-keyword">scale with you.</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
@@ -207,20 +207,20 @@ const Pricing = () => {
               key={p.name}
               className={`flex h-full flex-col rounded-3xl p-8 ${
                 p.featured
-                  ? "bg-charcoal text-charcoal-foreground"
+                  ? "bg-orange text-white"
                   : "bg-secondary/30 border border-border"
               }`}
             >
               <div className="flex items-center justify-between">
                 <p
                   className={`text-xs uppercase tracking-[0.3em] font-semibold ${
-                    p.featured ? "text-charcoal-foreground/60" : "text-muted-foreground"
+                    p.featured ? "text-white/70" : "text-muted-foreground"
                   }`}
                 >
                   {p.name}
                 </p>
                 {p.featured && (
-                  <span className="rounded-full bg-charcoal-foreground/15 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]">
+                  <span className="rounded-full bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]">
                     Most popular
                   </span>
                 )}
@@ -230,7 +230,7 @@ const Pricing = () => {
                 {p.price}
                 <span
                   className={`text-base font-semibold ${
-                    p.featured ? "text-charcoal-foreground/55" : "text-muted-foreground"
+                    p.featured ? "text-white/70" : "text-muted-foreground"
                   }`}
                 >
                   {p.per}
@@ -239,7 +239,7 @@ const Pricing = () => {
 
               <p
                 className={`mt-4 text-sm leading-relaxed ${
-                  p.featured ? "text-charcoal-foreground/80" : "text-muted-foreground"
+                  p.featured ? "text-white/80" : "text-muted-foreground"
                 }`}
               >
                 {p.desc}
@@ -250,12 +250,12 @@ const Pricing = () => {
                   <li
                     key={it}
                     className={`flex items-start gap-2.5 text-sm font-medium ${
-                      p.featured ? "text-charcoal-foreground/90" : "text-foreground"
+                      p.featured ? "text-white/90" : "text-foreground"
                     }`}
                   >
                     <Check
                       className={`mt-0.5 h-4 w-4 shrink-0 ${
-                        p.featured ? "text-charcoal-foreground" : "text-foreground"
+                        p.featured ? "text-white" : "text-foreground"
                       }`}
                     />
                     {it}

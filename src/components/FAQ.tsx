@@ -52,7 +52,7 @@ const FAQ = () => {
           className="section-heading section-heading--narrow"
         >
           <span className="section-badge">Frequently Asked Questions</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
             <span className="text-keyword">Got questions?</span> Here's everything you need to know.
           </h2>
           <p className="text-muted-foreground text-base md:text-lg mt-2">

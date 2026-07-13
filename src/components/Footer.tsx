@@ -9,20 +9,20 @@ const Footer = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="py-12 px-6 border-t border-border"
+      className="bg-ink py-12 px-6 border-t border-cloud/10"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Emporom Media" className="h-12" />
+          <img src={logo} alt="Emporom Media" className="h-12 brightness-0 invert opacity-90" />
         </div>
 
         <div className="flex flex-1 justify-center order-2">
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-cloud/50">
             {["Services", "Process", "About", "Pricing", "FAQ"].map((label) => (
               <a
                 key={label}
                 href={`#${label.toLowerCase()}`}
-                className="inline-flex items-center px-3 py-1.5 transition-colors duration-200 hover:text-foreground"
+                className="inline-flex items-center px-3 py-1.5 transition-colors duration-200 hover:text-orange"
               >
                 {label}
               </a>
@@ -31,7 +31,7 @@ const Footer = () => {
               href="https://www.linkedin.com/company/emporom-digital-marketing/posts/?feedView=all"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1.5 transition-colors duration-200 hover:text-foreground"
+              className="inline-flex items-center gap-2 px-3 py-1.5 transition-colors duration-200 hover:text-orange"
             >
               <Linkedin className="w-4 h-4" />
               LinkedIn
@@ -40,7 +40,7 @@ const Footer = () => {
               href="https://www.instagram.com/emporom.media/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1.5 transition-colors duration-200 hover:text-foreground"
+              className="inline-flex items-center gap-2 px-3 py-1.5 transition-colors duration-200 hover:text-orange"
             >
               <Instagram className="w-4 h-4" />
               Instagram
@@ -48,20 +48,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="text-sm text-muted-foreground flex flex-col items-center gap-1 text-center order-3 mt-4 md:mt-0 md:items-end md:text-right">
-          <a
-            href="mailto:sam@emporom.media"
-            className="hover:text-foreground transition-colors"
-          >
+        <div className="text-sm text-cloud/50 flex flex-col items-center gap-1 text-center order-3 mt-4 md:mt-0 md:items-end md:text-right">
+          <a href="mailto:sam@emporom.media" className="hover:text-orange transition-colors">
             sam@emporom.media
           </a>
-          <a
-            href="mailto:logan@emporom.org"
-            className="hover:text-foreground transition-colors"
-          >
+          <a href="mailto:logan@emporom.org" className="hover:text-orange transition-colors">
             logan@emporom.org
           </a>
-          <span className="text-xs text-muted-foreground/80">
+          <span className="text-xs text-cloud/30">
             © {new Date().getFullYear()} Emporom Media. All rights reserved.
           </span>
         </div>

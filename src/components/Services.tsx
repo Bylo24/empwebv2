@@ -81,7 +81,7 @@ const Services = () => {
           className="section-heading"
         >
           <span className="section-badge">✦ Our services</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
             <span className="text-keyword">Services</span> designed to help your brand shine brighter.
           </h2>
         </motion.div>
