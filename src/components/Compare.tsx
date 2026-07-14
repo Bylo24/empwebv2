@@ -51,7 +51,7 @@ function Card({
       <div className="mb-7 flex items-center justify-between">
         <span
           className={`flex items-center gap-2 rounded-full px-3 py-1 font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] ${
-            featured ? "bg-orange/15 text-orange" : "bg-charcoal/5 text-charcoal/45"
+            featured ? "bg-orange/15 text-orange" : "bg-charcoal/5 text-charcoal/70"
           }`}
         >
           <span
@@ -62,7 +62,7 @@ function Card({
         </span>
         <span
           className={`font-mono text-[0.6rem] uppercase tracking-[0.16em] ${
-            featured ? "text-cloud/35" : "text-charcoal/30"
+            featured ? "text-cloud/65" : "text-charcoal/70"
           }`}
         >
           {side}
@@ -78,7 +78,7 @@ function Card({
           <li key={t} className="flex items-start gap-3">
             <span
               className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${
-                featured ? "bg-orange text-white" : "bg-charcoal/[0.06] text-charcoal/40"
+                featured ? "bg-orange text-white" : "bg-charcoal/[0.06] text-charcoal/60"
               }`}
             >
               {featured ? (
@@ -91,7 +91,7 @@ function Card({
                 </svg>
               )}
             </span>
-            <span className={`text-[0.98rem] leading-[1.55] ${featured ? "text-cloud/85" : "text-charcoal/55"}`}>
+            <span className={`text-[0.98rem] leading-[1.55] ${featured ? "text-cloud/85" : "text-charcoal/70"}`}>
               {t}
             </span>
           </li>
@@ -118,7 +118,7 @@ const Compare = () => {
           <h2 className="font-display display balance text-[clamp(2rem,4.2vw,3.1rem)] font-extrabold leading-[1.02] text-charcoal">
             Most agencies hand you a to-do list. We just handle it.
           </h2>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-charcoal/55">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-charcoal/70">
             Same budget, two very different months. Here's what changes when
             the person running your ads is the one who built them.
           </p>

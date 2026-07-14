@@ -158,36 +158,38 @@ const SEGMENTS: Segment[] = [
 function PlanCard({ p }: { p: Plan }) {
   return (
     <div
-      className={`flex h-full flex-col rounded-3xl p-8 ${
-        p.featured ? "bg-orange text-white" : "bg-secondary/30 border border-border"
+      className={`flex h-full flex-col rounded-[1.6rem] p-8 transition-all duration-500 ease-premium ${
+        p.featured
+          ? "bg-orange text-white shadow-[0_30px_80px_-24px_rgba(255,91,5,0.4)]"
+          : "border border-charcoal/10 bg-white hover:-translate-y-0.5 hover:border-charcoal/15 hover:shadow-[var(--shadow-lift)]"
       }`}
     >
       <div className="flex items-center justify-between">
-        <p className={`text-xs uppercase tracking-[0.3em] font-semibold ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>
+        <p className={`font-mono text-xs uppercase tracking-[0.3em] font-semibold ${p.featured ? "text-white/90" : "text-charcoal/70"}`}>
           {p.name}
         </p>
         {p.featured && (
-          <span className="rounded-full bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]">Most popular</span>
+          <span className="rounded-full bg-white/20 px-3 py-1 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.2em]">Most popular</span>
         )}
       </div>
 
-      <p className="mt-5 text-4xl font-bold tracking-tight">
+      <p className="mt-5 font-display text-4xl font-extrabold tracking-tight">
         {p.price}
-        <span className={`text-base font-semibold ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>{p.per}</span>
+        <span className={`text-base font-semibold ${p.featured ? "text-white/90" : "text-charcoal/70"}`}>{p.per}</span>
       </p>
 
-      <p className={`mt-4 text-sm leading-relaxed ${p.featured ? "text-white/80" : "text-muted-foreground"}`}>{p.desc}</p>
+      <p className={`mt-4 text-sm leading-relaxed ${p.featured ? "text-white/90" : "text-charcoal/70"}`}>{p.desc}</p>
 
       <ul className="mt-6 flex-1 space-y-3">
         {p.items.map((it) => (
-          <li key={it} className={`flex items-start gap-2.5 text-sm font-medium ${p.featured ? "text-white/90" : "text-foreground"}`}>
-            <Check className={`mt-0.5 h-4 w-4 shrink-0 ${p.featured ? "text-white" : "text-foreground"}`} />
+          <li key={it} className={`flex items-start gap-2.5 text-sm font-medium ${p.featured ? "text-white" : "text-charcoal"}`}>
+            <Check className={`mt-0.5 h-4 w-4 shrink-0 ${p.featured ? "text-white" : "text-orange"}`} />
             {it}
           </li>
         ))}
       </ul>
 
-      <Button asChild variant={p.featured ? "secondary" : "default"} size="lg" className="mt-8 w-full">
+      <Button asChild variant={p.featured ? "secondary" : "default"} size="lg" className="mt-8 w-full rounded-full">
         <Link to="/work-with-us">Apply to Work With Us</Link>
       </Button>
     </div>
@@ -199,14 +201,17 @@ const Pricing = () => {
   const active = SEGMENTS.find((s) => s.key === segmentKey) ?? SEGMENTS[0];
 
   return (
-    <section id="pricing" className="section-base bg-background">
-      <div className="max-w-6xl mx-auto">
-        <Reveal className="section-heading">
-          <span className="section-badge">Pricing</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
-            Retainers that <span className="text-keyword">scale with you.</span>
+    <section id="pricing" className="border-t border-charcoal/10 bg-white py-28">
+      <div className="max-w-6xl mx-auto px-6">
+        <Reveal className="mx-auto max-w-2xl text-center mb-14">
+          <p className="eyebrow flex items-center justify-center gap-2.5 text-charcoal/70">
+            <span className="blink inline-block h-1.5 w-1.5 rounded-full bg-orange shadow-[0_0_8px_#ff5b05]" />
+            Pricing
+          </p>
+          <h2 className="font-display mt-5 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
+            Retainers that <span className="fade-word">scale with you.</span>
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
+          <p className="mt-4 text-lg text-charcoal/70">
             Monthly, no lock-in beyond the agreed term.
           </p>
         </Reveal>
@@ -217,7 +222,11 @@ const Pricing = () => {
             <button
               key={s.key}
               onClick={() => setSegmentKey(s.key)}
-              className={`service-tab ${segmentKey === s.key ? "service-tab-active" : ""}`}
+              className={`focus-ring rounded-full border px-6 py-2.5 text-sm font-bold transition-all duration-400 ease-premium ${
+                segmentKey === s.key
+                  ? "border-orange bg-orange text-white shadow-[0_4px_16px_-4px_rgba(255,91,5,0.45)]"
+                  : "border-charcoal/10 bg-white text-charcoal/70 hover:border-charcoal/20 hover:text-charcoal"
+              }`}
             >
               {s.label}
             </button>

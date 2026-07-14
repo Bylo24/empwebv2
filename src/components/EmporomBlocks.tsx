@@ -73,14 +73,14 @@ export function Cases() {
                   <span className="h-px flex-1 bg-charcoal/10" />
                   <div className="flex gap-2">
                     {CASES[0].tags.map((t) => (
-                      <span key={t} className="rounded-full border border-charcoal/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-charcoal/48">
+                      <span key={t} className="rounded-full border border-charcoal/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-charcoal/70">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
                 <h3 className="text-2xl font-extrabold leading-snug tracking-tight text-charcoal">{CASES[0].result}</h3>
-                <p className="mt-4 leading-relaxed text-charcoal/58">{CASES[0].story}</p>
+                <p className="mt-4 leading-relaxed text-charcoal/70">{CASES[0].story}</p>
               </div>
             </div>
           </article>
@@ -92,14 +92,14 @@ export function Cases() {
               <article className="group flex h-full flex-col rounded-[1.4rem] border border-charcoal/10 bg-white overflow-hidden shadow-[var(--shadow-soft)] transition-all duration-500 ease-premium hover:-translate-y-1 hover:border-orange/20 hover:shadow-[var(--shadow-lift)]">
                 <div className="flex items-center justify-between border-b border-charcoal/10 px-8 py-4 bg-charcoal/[0.018]">
                   <span className="font-mono text-sm font-bold text-orange">{c.n}</span>
-                  <span className="eyebrow text-charcoal/38">{c.sector}</span>
+                  <span className="eyebrow text-charcoal/70">{c.sector}</span>
                 </div>
                 <div className="flex flex-col flex-1 p-8">
                   <h3 className="text-2xl font-extrabold leading-snug tracking-tight text-charcoal">{c.result}</h3>
-                  <p className="mt-4 flex-1 leading-relaxed text-charcoal/58">{c.story}</p>
+                  <p className="mt-4 flex-1 leading-relaxed text-charcoal/70">{c.story}</p>
                   <div className="mt-6 flex gap-2">
                     {c.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-charcoal/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-charcoal/48 transition-all duration-300 group-hover:border-orange/25">
+                      <span key={t} className="rounded-full border border-charcoal/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-charcoal/70 transition-all duration-300 group-hover:border-orange/25">
                         {t}
                       </span>
                     ))}
@@ -249,7 +249,7 @@ export function DashboardBand() {
           <h2 className={`${hed} display balance text-[clamp(2rem,4.3vw,3.1rem)] leading-[1.02] text-charcoal`}>
             <Words text="Your marketing," tail={<span>in one view.</span>} />
           </h2>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/58">
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/70">
             Ads, SEO, landing pages and email don't live in five logins run by
             five freelancers who never talk. It's one team handling the lot,
             so you always know what's live, what's in test, and what ships next.
@@ -292,7 +292,7 @@ export function ReceiptTable() {
           <h2 className={`${hed} display balance text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.02] text-charcoal`}>
             <Words text="What a full-service agency" tail={<span>replaces.</span>} />
           </h2>
-          <p className="mt-4 text-lg text-charcoal/52">
+          <p className="mt-4 text-lg text-charcoal/70">
             Every line below is usually its own freelancer or vendor. We run them as one team.
           </p>
         </Reveal>
@@ -300,15 +300,15 @@ export function ReceiptTable() {
         <Reveal delay={0.1}>
           <div className="relative mt-12 overflow-hidden rounded-2xl bg-white" style={{ border: "1px solid rgba(36,48,55,0.10)", boxShadow: SHADOW_STACK }}>
             <div className="grid grid-cols-[1.5fr_1fr_1fr] border-b border-charcoal/10 bg-paper/50">
-              <div className="px-5 py-4 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-charcoal/40">What you need</div>
-              <div className="px-4 py-4 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] text-charcoal/40">The usual stack</div>
+              <div className="px-5 py-4 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-charcoal/70">What you need</div>
+              <div className="px-4 py-4 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] text-charcoal/70">The usual stack</div>
               <div className="px-4 py-4 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em]" style={{ color: ORANGE }}>Emporom</div>
             </div>
             {RECEIPT_ROWS.map((r, i) => (
               <div key={r} className="grid grid-cols-[1.5fr_1fr_1fr] items-center" style={{ borderTop: i === 0 ? "none" : "1px solid rgba(36,48,55,0.06)" }}>
                 <div className="px-5 py-4 text-[0.92rem] font-medium text-charcoal/80">{r}</div>
-                <div className="flex items-center justify-center gap-2 px-4 py-4 text-[0.82rem] text-charcoal/45">
-                  <X size={13} className="text-charcoal/30" />
+                <div className="flex items-center justify-center gap-2 px-4 py-4 text-[0.82rem] text-charcoal/70">
+                  <X size={13} className="text-charcoal/55" />
                   <span className="hidden sm:inline">Separate vendor</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 px-4 py-4 text-[0.82rem] font-semibold" style={{ background: `${ORANGE}06`, color: ORANGE }}>
@@ -319,7 +319,7 @@ export function ReceiptTable() {
             ))}
             <div className="grid grid-cols-[1.5fr_1fr_1fr] items-center border-t-2 border-charcoal/12 bg-paper/40">
               <div className={`${hed} px-5 py-5 text-sm text-charcoal`}>What you deal with</div>
-              <div className="px-4 py-5 text-center text-[0.82rem] leading-tight text-charcoal/55">5+ vendors<br />nobody owns it</div>
+              <div className="px-4 py-5 text-center text-[0.82rem] leading-tight text-charcoal/70">5+ vendors<br />nobody owns it</div>
               <div className="px-4 py-5 text-center text-[0.82rem] font-bold leading-tight" style={{ background: `${ORANGE}0c`, color: ORANGE }}>1 team<br />we own it</div>
             </div>
           </div>
@@ -370,7 +370,7 @@ export function Approach() {
                     <div className="flex flex-1 flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-1">
                       <div className="max-w-lg">
                         <h3 className={`${hed} text-lg text-charcoal`}>{s.title}</h3>
-                        <p className="mt-1.5 text-[0.95rem] leading-relaxed text-charcoal/58">{s.body}</p>
+                        <p className="mt-1.5 text-[0.95rem] leading-relaxed text-charcoal/70">{s.body}</p>
                       </div>
                       <span className="rounded-full border px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.16em]" style={{ borderColor: `${ORANGE}2a`, color: ORANGE }}>
                         {s.when}
@@ -397,7 +397,7 @@ export function Approach() {
 
               <div className="flex items-center gap-2 px-7 pt-6 pb-4 border-b border-white/8">
                 <span className="h-1.5 w-1.5 rounded-full bg-orange shadow-[0_0_8px_#ff5b05]" />
-                <span className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-white/40">How we operate</span>
+                <span className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-white/55">How we operate</span>
               </div>
 
               <div className="p-7 space-y-5">
@@ -408,14 +408,14 @@ export function Approach() {
                     </span>
                     <div>
                       <p className="font-semibold text-white leading-snug">{item.label}</p>
-                      <p className="mt-0.5 eyebrow text-white/40">{item.sub}</p>
+                      <p className="mt-0.5 eyebrow text-white/55">{item.sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="px-7 pb-6 pt-2 border-t border-white/8">
-                <p className="font-mono text-[0.56rem] uppercase tracking-[0.18em] text-white/30">Wellington, Aotearoa</p>
+                <p className="font-mono text-[0.56rem] uppercase tracking-[0.18em] text-white/55">Wellington, Aotearoa</p>
               </div>
             </div>
           </div>

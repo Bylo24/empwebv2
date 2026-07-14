@@ -15,7 +15,7 @@ export function Marquee() {
       <div className="relative marquee-track flex w-max items-center gap-10">
         {row.map((c, i) => (
           <span key={i} className="flex items-center gap-10 whitespace-nowrap">
-            <span className="text-sm font-semibold tracking-[0.02em] text-charcoal/40">{c}</span>
+            <span className="text-sm font-semibold tracking-[0.02em] text-charcoal/70">{c}</span>
             <Spark className="h-2.5 w-2.5 text-orange/40" />
           </span>
         ))}
@@ -136,7 +136,7 @@ export function Audit() {
           <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
             <Words text="Hand it over." tail={<span>Watch it climb.</span>} />
           </h2>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/58">
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/70">
             Most accounts we inherit are a mess. Half-built campaigns, budget
             bleeding into the wrong places, nobody actually owning it. We take
             the whole thing over and run it like it should be run.
@@ -147,7 +147,7 @@ export function Audit() {
                 key={opt}
                 onClick={() => setFixed(i === 1)}
                 className={`focus-ring rounded-full px-7 py-2.5 text-sm font-bold transition-all duration-400 ease-premium ${
-                  fixed === (i === 1) ? "bg-orange text-white shadow-[0_4px_16px_-4px_rgba(255,91,5,0.45)]" : "text-charcoal/45 hover:text-charcoal"
+                  fixed === (i === 1) ? "bg-orange text-white shadow-[0_4px_16px_-4px_rgba(255,91,5,0.45)]" : "text-charcoal/70 hover:text-charcoal"
                 }`}
               >
                 {opt}
@@ -163,14 +163,14 @@ export function Audit() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-4 flex-1 rounded-md bg-charcoal/5 px-3 py-1 font-mono text-[0.6rem] text-charcoal/40">
+                <span className="ml-4 flex-1 rounded-md bg-charcoal/5 px-3 py-1 font-mono text-[0.6rem] text-charcoal/70">
                   Your account · before &amp; after
                 </span>
               </div>
               <div className="bg-white p-7">
                 <div className="flex items-end justify-between">
                   <div>
-                    <p className="eyebrow text-charcoal/40">Leads per month</p>
+                    <p className="eyebrow text-charcoal/70">Leads per month</p>
                     <p className="mt-2 text-5xl font-extrabold tracking-tight tabular-nums text-charcoal transition-all duration-500">
                       {leads}
                     </p>
@@ -196,7 +196,7 @@ export function Audit() {
                     />
                   ))}
                 </div>
-                <p className="mt-5 border-t border-charcoal/10 pt-4 eyebrow text-charcoal/35">
+                <p className="mt-5 border-t border-charcoal/10 pt-4 eyebrow text-charcoal/70">
                   Real client, before and after we took the account over
                 </p>
               </div>

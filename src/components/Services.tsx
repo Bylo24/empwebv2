@@ -30,7 +30,7 @@ function MetaVisual() {
           <span
             key={c.label}
             className={`whitespace-nowrap rounded-full border px-2.5 py-1 font-mono text-[0.56rem] font-bold transition-all duration-300 ${
-              c.live ? "border-orange/35 bg-orange/[0.08] text-orange shadow-[0_2px_8px_-2px_rgba(255,91,5,0.2)]" : "border-charcoal/10 bg-charcoal/[0.02] text-charcoal/45"
+              c.live ? "border-orange/35 bg-orange/[0.08] text-orange shadow-[0_2px_8px_-2px_rgba(255,91,5,0.2)]" : "border-charcoal/10 bg-charcoal/[0.02] text-charcoal/70"
             }`}
           >
             {c.label}
@@ -51,7 +51,7 @@ function GoogleVisual() {
           <circle cx="11" cy="11" r="7" />
           <path d="m20 20-4-4" />
         </svg>
-        <span className="text-xs text-charcoal/52">pest control wellington</span>
+        <span className="text-xs text-charcoal/70">pest control wellington</span>
         <span className="ml-auto shrink-0 rounded border border-orange/35 px-1.5 py-0.5 font-mono text-[0.52rem] uppercase tracking-wide text-orange">Sponsored</span>
       </div>
       <div className="flex h-20 items-end gap-1.5 px-1">
@@ -74,7 +74,7 @@ function SeoVisual() {
         <div
           key={r.rank}
           className={`flex items-center gap-3 rounded-lg border px-3.5 py-2.5 text-xs transition-all duration-300 ${
-            r.you ? "border-orange/35 bg-gradient-to-r from-orange/[0.07] to-transparent font-bold text-charcoal shadow-[0_2px_8px_-2px_rgba(255,91,5,0.12)]" : "border-charcoal/10 bg-charcoal/[0.02] text-charcoal/40"
+            r.you ? "border-orange/35 bg-gradient-to-r from-orange/[0.07] to-transparent font-bold text-charcoal shadow-[0_2px_8px_-2px_rgba(255,91,5,0.12)]" : "border-charcoal/10 bg-charcoal/[0.02] text-charcoal/70"
           }`}
         >
           <span className="font-mono shrink-0">{r.rank}.</span>
@@ -99,7 +99,7 @@ function CroVisual() {
             t.win ? "border-orange/30 bg-gradient-to-b from-orange/[0.08] to-transparent shadow-[0_4px_12px_-4px_rgba(255,91,5,0.18)]" : "border-charcoal/10 bg-charcoal/[0.02] opacity-50"
           }`}
         >
-          <p className="eyebrow text-charcoal/38">Variant {t.v}</p>
+          <p className="eyebrow text-charcoal/70">Variant {t.v}</p>
           <p className="mt-1.5 text-2xl font-extrabold text-charcoal">{t.rate}</p>
           {t.win && <p className="mt-0.5 font-mono text-[0.58rem] text-orange">winner</p>}
         </div>
@@ -132,7 +132,7 @@ function SocialVisual() {
     <div className="overflow-hidden py-3 [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
       <div className="marquee-track flex w-max gap-3">
         {[...tags, ...tags].map((t, i) => (
-          <span key={i} className="whitespace-nowrap rounded-full border border-charcoal/10 bg-charcoal/[0.03] px-4 py-1.5 text-xs font-semibold text-charcoal/60">
+          <span key={i} className="whitespace-nowrap rounded-full border border-charcoal/10 bg-charcoal/[0.03] px-4 py-1.5 text-xs font-semibold text-charcoal/70">
             {t}
           </span>
         ))}
@@ -155,14 +155,14 @@ const Services = () => {
     <section id="services" className="border-t border-charcoal/10 bg-white py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow flex items-center justify-center gap-2.5 text-charcoal/45">
+          <p className="eyebrow flex items-center justify-center gap-2.5 text-charcoal/70">
             <span className="blink inline-block h-1.5 w-1.5 rounded-full bg-orange shadow-[0_0_8px_#ff5b05]" />
             Services
           </p>
           <h2 className="font-display mt-5 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
             <Words text="One partner for the whole" tail={<span className="fade-word">growth engine.</span>} />
           </h2>
-          <p className="mt-4 text-lg text-charcoal/52">
+          <p className="mt-4 text-lg text-charcoal/70">
             Every service runs the same way: built properly, then scaled. Never bolted on and left to drift.
           </p>
         </Reveal>
@@ -179,7 +179,7 @@ const Services = () => {
                   <div className={`px-7 pt-6 pb-4 ${c.accent ? "bg-gradient-to-b from-orange/[0.03] to-transparent" : "bg-charcoal/[0.015]"}`}>{c.visual}</div>
                   <div className="border-t border-charcoal/[0.06] p-7">
                     <h3 className="text-xl font-extrabold tracking-tight text-charcoal">{c.name}</h3>
-                    <p className="mt-2 leading-relaxed text-charcoal/55">{c.desc}</p>
+                    <p className="mt-2 leading-relaxed text-charcoal/70">{c.desc}</p>
                   </div>
                 </div>
               </div>

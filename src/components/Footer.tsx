@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <img src={logoWhite} alt="Emporom Media" className="h-12" />
-            <p className="mt-5 max-w-xs leading-relaxed text-cloud/45">
+            <p className="mt-5 max-w-xs leading-relaxed text-cloud/60">
               Performance marketing for NZ brands that value the work. Wellington, Aotearoa.
             </p>
             <Link
@@ -60,11 +60,11 @@ const Footer = () => {
 
           {FOOT.map((col) => (
             <div key={col.h}>
-              <p className="eyebrow text-cloud/35">{col.h}</p>
+              <p className="eyebrow text-cloud/60">{col.h}</p>
               <ul className="mt-5 space-y-3">
                 {col.links.map(([l, href]) => (
                   <li key={l}>
-                    <a href={href} className="focus-ring text-sm font-medium text-cloud/48 transition-all duration-300 hover:text-orange hover:translate-x-0.5 inline-block">
+                    <a href={href} className="focus-ring text-sm font-medium text-cloud/60 transition-all duration-300 hover:text-orange hover:translate-x-0.5 inline-block">
                       {l}
                     </a>
                   </li>
@@ -74,7 +74,7 @@ const Footer = () => {
           ))}
 
           <div>
-            <p className="eyebrow text-cloud/35">Elsewhere</p>
+            <p className="eyebrow text-cloud/60">Elsewhere</p>
             <ul className="mt-5 space-y-3">
               {SOCIALS.map((s) => (
                 <li key={s.label}>
@@ -82,7 +82,7 @@ const Footer = () => {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="focus-ring inline-flex items-center gap-2 text-sm font-medium text-cloud/48 transition-all duration-300 hover:text-orange hover:translate-x-0.5"
+                    className="focus-ring inline-flex items-center gap-2 text-sm font-medium text-cloud/60 transition-all duration-300 hover:text-orange hover:translate-x-0.5"
                   >
                     <s.icon className="h-3.5 w-3.5" />
                     {s.label}
@@ -90,7 +90,7 @@ const Footer = () => {
                 </li>
               ))}
               <li>
-                <a href="mailto:logan@emporom.org" className="focus-ring text-sm font-medium text-cloud/48 transition-all duration-300 hover:text-orange hover:translate-x-0.5 inline-block">
+                <a href="mailto:logan@emporom.org" className="focus-ring text-sm font-medium text-cloud/60 transition-all duration-300 hover:text-orange hover:translate-x-0.5 inline-block">
                   logan@emporom.org
                 </a>
               </li>
@@ -99,7 +99,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-cloud/[0.08] pt-7 sm:flex-row">
-          <p className="text-sm text-cloud/35">© {new Date().getFullYear()} Emporom Media. All rights reserved.</p>
+          <p className="text-sm text-cloud/60">© {new Date().getFullYear()} Emporom Media. All rights reserved.</p>
           <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.24em] text-orange">Navigate forward.</p>
         </div>
       </div>

@@ -135,7 +135,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cloud/40">Scroll</span>
+        <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cloud/60">Scroll</span>
         <span className="relative flex h-9 w-5 items-start justify-center rounded-full border border-cloud/25 p-1">
           <motion.span
             animate={reduce ? undefined : { y: [0, 12, 0], opacity: [1, 0.2, 1] }}

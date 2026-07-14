@@ -48,7 +48,7 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="focus-ring relative whitespace-nowrap text-[0.82rem] font-semibold text-charcoal/55 transition-colors duration-300 ease-premium hover:text-charcoal after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-orange after:transition-all after:duration-300 after:ease-premium hover:after:w-full"
+                className="focus-ring relative whitespace-nowrap text-[0.82rem] font-semibold text-charcoal/70 transition-colors duration-300 ease-premium hover:text-charcoal after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-orange after:transition-all after:duration-300 after:ease-premium hover:after:w-full"
               >
                 {l.label}
               </a>

@@ -63,7 +63,7 @@ const FAQ = () => {
                   <span className="text-base font-bold tracking-tight text-charcoal leading-snug">{f.q}</span>
                   <span
                     className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border transition-all duration-400 ease-premium ${
-                      open === i ? "rotate-45 border-orange/30 bg-orange text-white" : "border-charcoal/15 bg-charcoal/[0.03] text-charcoal/50"
+                      open === i ? "rotate-45 border-orange/30 bg-orange text-white" : "border-charcoal/15 bg-charcoal/[0.03] text-charcoal/65"
                     }`}
                   >
                     <svg viewBox="0 0 12 12" fill="none" className="h-3 w-3" aria-hidden="true">
@@ -81,7 +81,7 @@ const FAQ = () => {
                       transition={{ duration: 0.35, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <p className="px-7 pb-6 leading-relaxed text-charcoal/58">{f.a}</p>
+                      <p className="px-7 pb-6 leading-relaxed text-charcoal/70">{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

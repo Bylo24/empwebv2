@@ -59,14 +59,14 @@ const CTA = () => {
 
       <div className="relative mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <p className="eyebrow flex items-center gap-2.5 text-charcoal/45">
+          <p className="eyebrow flex items-center gap-2.5 text-charcoal/70">
             <span className="blink inline-block h-1.5 w-1.5 rounded-full bg-orange shadow-[0_0_8px_#ff5b05]" />
             Contact
           </p>
           <h2 className="font-display mt-5 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.03em] text-balance text-charcoal">
             Ready to find out <span className="fade-word">if we're a fit?</span>
           </h2>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/58">
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/70">
             Answer a few quick questions and we'll tell you straight what we'd
             take off your plate first. No forms to chase, no sales call
             required to get started.
@@ -77,7 +77,7 @@ const CTA = () => {
               <li key={i.label} className="flex items-center gap-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-charcoal/10 bg-paper text-orange shadow-[var(--shadow-soft)]">{i.icon}</span>
                 <span>
-                  <p className="eyebrow text-charcoal/38">{i.label}</p>
+                  <p className="eyebrow text-charcoal/70">{i.label}</p>
                   <p className="text-sm font-semibold text-charcoal">{i.value}</p>
                 </span>
               </li>
@@ -86,10 +86,10 @@ const CTA = () => {
 
           <div className="mt-10 rounded-[1.2rem] border border-charcoal/10 bg-charcoal/[0.018] p-1.5 shadow-[var(--shadow-soft)]">
             <div className="rounded-[calc(1.2rem-6px)] bg-white px-5 py-4">
-              <p className="eyebrow text-charcoal/32 mb-3">Before you apply</p>
+              <p className="eyebrow text-charcoal/70 mb-3">Before you apply</p>
               <ul className="space-y-2.5">
                 {PREREQS.map((b) => (
-                  <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/62">
+                  <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/70">
                     <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-orange" />
                     {b}
                   </li>
@@ -108,7 +108,7 @@ const CTA = () => {
                 </svg>
               </span>
               <h3 className="mt-6 text-2xl font-extrabold tracking-tight text-charcoal">Apply to Work With Us</h3>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-charcoal/58">
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-charcoal/70">
                 Four short questions about your business and what you're trying to grow. That's it.
               </p>
 
@@ -124,7 +124,7 @@ const CTA = () => {
                 </span>
               </Link>
 
-              <p className="mt-5 eyebrow text-charcoal/35">No sales call · no obligation · straight answers</p>
+              <p className="mt-5 eyebrow text-charcoal/70">No sales call · no obligation · straight answers</p>
             </div>
           </div>
         </Reveal>
