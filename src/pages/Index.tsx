@@ -8,6 +8,7 @@ import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { Grain } from "@/components/Premium";
 import { useSeo } from "@/hooks/use-seo";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Grain tone="light" />
       <Navbar />
       <main>
         <Hero />

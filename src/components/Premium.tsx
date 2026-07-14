@@ -3,6 +3,26 @@ import { motion, useReducedMotion } from "framer-motion";
 
 export const EASE = [0.16, 1, 0.3, 1] as const;
 
+/* Fixed film-grain overlay — tactile depth. Drop once at page root. */
+export function Grain({
+  opacity = 0.04,
+  tone = "light",
+}: {
+  opacity?: number;
+  tone?: "light" | "dark";
+}) {
+  return (
+    <div
+      aria-hidden
+      className="grain pointer-events-none fixed inset-0 z-[60]"
+      style={{
+        opacity,
+        mixBlendMode: tone === "dark" ? "screen" : "multiply",
+      }}
+    />
+  );
+}
+
 /* Section-level scroll reveal with mass (blur-up). Reduced-motion safe. */
 export function Reveal({
   children,
